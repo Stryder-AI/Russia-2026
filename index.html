@@ -175,6 +175,8 @@ section{position:relative}
 .hero{
   position:relative;
   min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
   display:flex;align-items:center;justify-content:center;
   color:var(--parchment);
   overflow:hidden;
@@ -189,9 +191,11 @@ section{position:relative}
       rgba(10,5,5,0.75) 100%),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/1920px-Kremlin_and_Red_Square.1.jpg');
   background-size:cover;
-  background-position:center;
+  background-position:center center;
+  background-repeat:no-repeat;
   transform:scale(1.08);
   animation:slowZoom 30s ease-in-out infinite alternate;
+  will-change:transform;
 }
 .hero-bg::after{
   content:"";position:absolute;inset:0;
@@ -351,7 +355,7 @@ section{position:relative}
    INTRO SECTION — "White Nights & Golden Domes"
    ============================================================ */
 .intro{
-  padding:8rem 0 6rem;
+  padding:5rem 0 4rem;
   background:linear-gradient(180deg, var(--cream) 0%, var(--parchment-warm) 100%);
   position:relative;
   overflow:hidden;
@@ -394,7 +398,7 @@ section{position:relative}
   font-size:clamp(.95rem, 1.6vw, 1.15rem);
   letter-spacing:.35em;
   color:var(--ink-soft);
-  margin:2rem 0 3rem;
+  margin:1.5rem 0 0;
   font-weight:500;
 }
 .intro .route span{color:var(--crimson);margin:0 .4rem}
@@ -714,6 +718,60 @@ section{position:relative}
 }
 .day-schedule-text strong{color:var(--crimson-deep);font-weight:600}
 .day-schedule-text em{font-style:italic;color:var(--gold-dark);font-family:var(--serif)}
+
+/* Interior description note (for palaces / cathedrals visited inside) */
+.interior-note{
+  display:block;
+  margin-top:.5rem;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:.88rem;
+  color:var(--gold-dark);
+  line-height:1.55;
+  padding-left:.8rem;
+  border-left:2px solid rgba(212,168,75,0.45);
+}
+.day-transit .interior-note{
+  color:rgba(244,201,93,0.85);
+  border-left-color:rgba(244,201,93,0.45);
+}
+
+/* Palace / monument link styling — make them obviously clickable */
+.palace-link{
+  color:var(--crimson);
+  text-decoration:none;
+  border-bottom:1px dashed rgba(139,0,0,0.45);
+  font-weight:600;
+  transition:all .25s ease;
+}
+.palace-link:hover{
+  color:var(--gold-dark);
+  border-bottom-color:var(--gold);
+  border-bottom-style:solid;
+}
+.day-transit .palace-link{
+  color:var(--gold-bright);
+  border-bottom-color:rgba(244,201,93,0.45);
+}
+.day-transit .palace-link:hover{
+  color:#fff7e0;
+  border-bottom-color:var(--gold-bright);
+}
+
+/* Single-line impact summary that replaces the long day description */
+.day-tagline{
+  font-family:var(--serif);
+  font-size:1.15rem;
+  line-height:1.55;
+  color:var(--ink-soft);
+  margin-bottom:1.8rem;
+  padding-left:1rem;
+  border-left:3px solid var(--gold);
+  font-style:italic;
+}
+.day-tagline strong{color:var(--crimson-deep);font-style:normal;font-weight:600}
+.day-transit .day-tagline{color:rgba(245,236,217,0.95);border-left-color:var(--gold-bright)}
+.day-transit .day-tagline strong{color:var(--gold-bright)}
 
 .day-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
 .day-tag{
@@ -1095,9 +1153,15 @@ section{position:relative}
   background:
     linear-gradient(180deg, rgba(10,5,5,0.85), rgba(90,0,0,0.9)),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/1920px-Moscow_Kremlin_%288281675670%29.jpg');
-  background-size:cover;background-attachment:fixed;
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
   color:var(--parchment);
   position:relative;
+}
+@media (max-width:1024px){
+  .cta{background-attachment:scroll}
 }
 .cta-inner{
   max-width:820px;margin:0 auto;text-align:center;padding:0 1.5rem;
@@ -1200,10 +1264,28 @@ section{position:relative}
   .map-stats{gap:1.5rem}
   .wrap, .wrap-narrow{padding:0 1rem}
   .intro,.summary,.highlights,.hotels,.cta,.map-section{padding-left:0;padding-right:0}
-  .intro{padding-top:5rem;padding-bottom:4rem}
+  .intro{padding-top:3rem;padding-bottom:3rem}
   .summary,.highlights,.hotels,.cta,.map-section{padding-top:4.5rem;padding-bottom:4.5rem}
   .cta-card{padding:1.8rem}
   .day-eyebrow::before{width:15px}
+
+  /* Mobile background fixes — fixed-attachment is broken on iOS Safari,
+     and the hero zoom animation can crop the image off-screen on narrow viewports */
+  .hero-bg{
+    transform:none;
+    animation:none;
+    background-position:center center;
+    background-size:cover;
+  }
+  .cta{
+    background-attachment:scroll;
+    background-position:center center;
+    background-size:cover;
+  }
+  .day-tagline{font-size:1rem;padding-left:.7rem}
+  .interior-note{font-size:.82rem;padding-left:.6rem}
+  .day-schedule-item{padding:.7rem .85rem}
+  .day-schedule-text{font-size:.9rem}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1299,23 +1381,8 @@ section{position:relative}
   <div class="intro-ornament right">❁</div>
 
   <div class="wrap-narrow intro-inner">
-    <div class="eyebrow reveal-el">Chapter One</div>
     <h2 class="reveal-el">The Journey of <em>White Nights &amp; Golden Domes</em></h2>
     <div class="route reveal-el">MOSCOW <span>◆</span> ST. PETERSBURG</div>
-
-    <p class="reveal-el">
-      This is a passage through the <strong>two souls of Russia</strong> &mdash; the red-gold heart of Moscow, and the imperial jewel-box of St. Petersburg &mdash; connected by the silver blur of a bullet train skimming across the taiga at 250 km/h.
-    </p>
-    <p class="reveal-el">
-      In Moscow, you walk the ancient cobbles of Red Square beneath the candy-spun domes of St. Basil's. You step into Soviet subway halls that look more like ballrooms, cross the glass sky-bridge of Zaryadye Park, and glide over the city on the VDNKH cable car. In St. Petersburg &mdash; the city Peter the Great carved out of a marsh to rival Paris &mdash; the palaces do not whisper. <strong>They sing.</strong>
-    </p>
-    <p class="reveal-el">
-      And all of it unfolds in the long golden twilight of Russia's famous <strong>White Nights</strong>, when the sun barely sets and the city simply refuses to sleep.
-    </p>
-    <p class="reveal-el">
-      This is not a sightseeing trip. It is a rite of passage &mdash; written in gold leaf, cast in bronze, and lit by midsummer skies that never quite go dark.
-    </p>
-    <div class="intro-quote reveal-el">&mdash; 28 June to 5 July 2026 &mdash;</div>
   </div>
 </section>
 
@@ -1417,15 +1484,15 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day One &middot; Sunday, 28 June 2026</div>
         <h2 class="day-title reveal-el">Arrival in <span style="color:var(--crimson)">Moscow</span></h2>
         <div class="day-theme reveal-el">&ldquo;Welcome to the Capital of Empires&rdquo;</div>
-        <p class="day-description reveal-el">
-          Your guide greets you at <strong>Sheremetyevo</strong> and whisks you straight into the capital. You drift onto the lantern-lit <strong>Arbat Street</strong>, then slip under the red-and-gold big top of <strong>Nikulin's Circus</strong> &mdash; the legendary 1880 arena. A <strong>welcome halal Indian dinner</strong> closes your first night on Russian soil.
+        <p class="day-tagline reveal-el">
+          Sheremetyevo to Arbat &mdash; <strong>your first taste of Moscow under lantern light.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">AFT</span><span class="day-schedule-text">Arrive <strong>Sheremetyevo Airport (SVO)</strong> · private meet &amp; greet · transfer to hotel</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">REST</span><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">EVE</span><span class="day-schedule-text">Evening stroll down the legendary <strong>Arbat Street</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><strong>Nikulin's Circus</strong> &mdash; premium seating in the green zone</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">LATE</span><span class="day-schedule-text"><em>Welcome halal Indian dinner</em> · overnight at AZIMUT Aerostar 4★</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Sheremetyevo Airport (SVO)</strong> · private meet &amp; greet · transfer to hotel</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Evening stroll down the legendary <strong>Arbat Street</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Nikulin's Circus</strong> &mdash; premium seating in the green zone</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Welcome halal Indian dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Arbat Street</span>
@@ -1459,15 +1526,15 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Two &middot; Monday, 29 June 2026</div>
         <h2 class="day-title reveal-el">Behind the <span style="color:var(--crimson)">Kremlin Walls</span></h2>
         <div class="day-theme reveal-el">&ldquo;Where Red Stars and Gold Domes Share the Sky&rdquo;</div>
-        <p class="day-description reveal-el">
-          Today Russia's beating heart opens to you. Step inside the <strong>Kremlin</strong>, walk onto the legendary <strong>Red Square</strong>, and climb into the psychedelic interior of <strong>St. Basil's Cathedral</strong>. Then descend into the <strong>Moscow Metro</strong> &mdash; stations that look more like ballrooms, built by Stalin as &ldquo;palaces for the people.&rdquo;
+        <p class="day-tagline reveal-el">
+          Eight centuries of red walls, candy-coloured domes, and <strong>palaces you ride to work.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">9 AM</span><span class="day-schedule-text">Breakfast &middot; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">10 AM</span><span class="day-schedule-text">Inside the <strong>Kremlin</strong> territory <em>(optional Armoury Chamber $25 p.p.)</em></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">12 PM</span><span class="day-schedule-text"><strong>Red Square</strong> · <strong>St. Basil's Cathedral</strong> (interior) · Lenin's Mausoleum · Alexander Garden · GUM · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">3 PM</span><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><em>Traditional Russian halal dinner</em> · overnight in Moscow</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &middot; meeting with the guide</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Inside the Armoury Chamber: tsarist crown jewels, Fabergé eggs, gold thrones, and the imperial coronation regalia of the Romanov dynasty.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> (interior) · Lenin's Mausoleum · Alexander Garden · GUM · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva<span class="interior-note">Inside St. Basil's: nine narrow chapels stacked like a labyrinth, with hand-painted floral frescoes covering every wall and ceiling &mdash; nothing like the candy-coloured exterior suggests.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Stalin's &ldquo;palaces for the people&rdquo; &mdash; marble columns, mosaic ceilings, bronze statues and crystal chandeliers, 50 metres underground.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Traditional Russian halal dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">The Kremlin</span>
@@ -1504,15 +1571,15 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Three &middot; Tuesday, 30 June 2026</div>
         <h2 class="day-title reveal-el">The City of <span style="color:var(--crimson)">Skylines</span></h2>
         <div class="day-theme reveal-el">&ldquo;Soviet Monuments &amp; Modern Moscow From Above&rdquo;</div>
-        <p class="day-description reveal-el">
-          Moscow on a grand scale. Ride up to <strong>Sparrow Hills</strong> for the postcard view, circle the Gothic rocket of <strong>Moscow State University</strong>, and pass the golden dome of <strong>Christ the Saviour</strong>. Afternoon is pure Soviet spectacle at <strong>VDNKH</strong> &mdash; soaring pavilions, gilt statues, and a cable-car ride that floats you above it all.
+        <p class="day-tagline reveal-el">
+          Soviet ambition from a great height &mdash; <strong>Sparrow Hills, Stalinist towers, and the gold of VDNKH.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">9 AM</span><span class="day-schedule-text">Breakfast &amp; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">10 AM</span><span class="day-schedule-text"><strong>Panoramic city tour</strong> — Sparrow Hills · MSU · the Seven Sisters (drive-by) · Cathedral of Christ the Saviour · Bolshoi Theatre exterior · Victory Park</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">2 PM</span><span class="day-schedule-text"><strong>VDNKH Park</strong> — monumental pavilions &amp; fountains</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">4 PM</span><span class="day-schedule-text"><strong>Cable car</strong> aerial ride over VDNKH</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><em>Mediterranean halal dinner</em> · overnight in Moscow</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &amp; meeting with the guide</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; Sparrow Hills · MSU · the Seven Sisters (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · Bolshoi Theatre exterior · Victory Park</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>VDNKH Park</strong> &mdash; monumental pavilions &amp; fountains</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Cable car</strong> aerial ride over VDNKH</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Mediterranean halal dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Sparrow Hills</span>
@@ -1549,15 +1616,15 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Four &middot; Wednesday, 01 July 2026</div>
         <h2 class="day-title reveal-el">The 250 km/h Dash to <span style="color:var(--gold-bright)">Imperial Russia</span></h2>
         <div class="day-theme reveal-el">&ldquo;From Red Square to the Neva&rdquo;</div>
-        <p class="day-description reveal-el">
-          Leave Moscow aboard the <strong>Sapsan silver arrow</strong> &mdash; 250 km/h, 4 hours, forests and villages slipping past the window. Step onto the platform in <strong>St. Petersburg</strong>, the Venice of the North, and the air changes. A golden-hour walk down <strong>Nevsky Prospekt</strong>, then a <strong>signature welcome dinner</strong>: Imperial Russian cuisine in a heritage venue, White Nights lingering overhead.
+        <p class="day-tagline reveal-el">
+          Four hours, 650 kilometres &mdash; <strong>Russia changes its accent from Moscow's red to Petersburg's pastel.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">MORN</span><span class="day-schedule-text">Breakfast · transfer to <strong>Leningradsky Station</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">TRAIN</span><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(comfort class seating)</em></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">PM</span><span class="day-schedule-text">Arrive St. Petersburg · hotel check-in · rest</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">EVE</span><span class="day-schedule-text">Sunset stroll along <strong>Nevsky Prospekt</strong> — magical under the long White Nights twilight</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">LATE</span><span class="day-schedule-text"><strong>Signature welcome halal dinner</strong> · Imperial Russian cuisine at a heritage venue <em>(Tamozhnya / Troika)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · transfer to <strong>Leningradsky Station</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(comfort class seating)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive St. Petersburg · hotel check-in · rest</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Sunset stroll along <strong>Nevsky Prospekt</strong> &mdash; magical under the long White Nights twilight</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Signature welcome halal dinner</strong> · Imperial Russian cuisine at a heritage venue <em>(Tamozhnya / Troika)</em> · overnight in St. Petersburg</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Sapsan Bullet Train</span>
@@ -1593,14 +1660,14 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Five &middot; Thursday, 02 July 2026</div>
         <h2 class="day-title reveal-el">The City of <span style="color:var(--crimson)">Tsars</span></h2>
         <div class="day-theme reveal-el">&ldquo;Where Every Facade Tells a Romanov Story&rdquo;</div>
-        <p class="day-description reveal-el">
-          Today St. Petersburg reveals itself. Cross <strong>Palace Square</strong> beneath the Winter Palace, pause before the mosaic onion domes of the <strong>Church of the Savior on Spilled Blood</strong>, meet the <strong>Bronze Horseman</strong>, and stand under the gold dome of <strong>St. Isaac's Cathedral</strong>. Close the day on a <strong>canal cruise</strong> &mdash; the way the city was designed to be seen: from the water.
+        <p class="day-tagline reveal-el">
+          The city the tsars built to outshine Europe &mdash; <strong>by foot, by canal, by gold dome.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">9 AM</span><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">10 AM</span><span class="day-schedule-text"><strong>City tour</strong> — Nevsky Prospekt · the Admiralty · <strong>Palace Square &amp; Alexander Column</strong> · <strong>Church of the Savior on Spilled Blood</strong> · St. Isaac's Cathedral · the Bronze Horseman · Rostral Columns · Summer Garden</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">PM</span><span class="day-schedule-text"><strong>Neva River &amp; Canal cruise</strong> — the city as Peter the Great meant you to see it</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><em>Arabian / Middle Eastern halal dinner</em> · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Rostral Columns · Summer Garden<span class="interior-note">Inside Savior on Spilled Blood: 7,500 sq metres of mosaic walls, ceilings and pillars &mdash; one of the largest collections of mosaic art in the world, lit by oil lamps.</span><span class="interior-note">Inside St. Isaac's: malachite and lapis-lazuli columns, mosaic icons, and a soaring 100-metre gilded dome &mdash; climb to the colonnade for the city laid out beneath you.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Neva River &amp; Canal cruise</strong> &mdash; the city as Peter the Great meant you to see it</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Arabian / Middle Eastern halal dinner</em> · overnight in St. Petersburg</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Palace Square</span>
@@ -1637,15 +1704,15 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Six &middot; Friday, 03 July 2026</div>
         <h2 class="day-title reveal-el">Fountains &amp; The <span style="color:var(--crimson)">Amber Room</span></h2>
         <div class="day-theme reveal-el">&ldquo;The Greatest Palaces in Europe &mdash; Twice Over&rdquo;</div>
-        <p class="day-description reveal-el">
-          Quite possibly the most jaw-dropping day of the journey. Morning: <strong>Peterhof</strong> &mdash; Peter the Great's answer to Versailles, with 64 gravity-fed fountains and 200+ gold-leafed statues. Afternoon: <strong>Catherine Palace</strong> at Tsarskoye Selo and its legendary <strong>Amber Room</strong> &mdash; six tons of glowing amber, once called the Eighth Wonder. An <em>optional Swan Lake ballet</em> closes the evening.
+        <p class="day-tagline reveal-el">
+          Two palaces. Sixty-four fountains. <strong>Six tons of glowing amber.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">9 AM</span><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">10 AM</span><span class="day-schedule-text"><strong>Peterhof Park</strong> — the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil one-way $30 p.p.)</em></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">2 PM</span><span class="day-schedule-text"><strong>Catherine Palace &amp; the Amber Room</strong> at Tsarskoye Selo</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><em>Iranian / Persian halal dinner</em></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">LATE</span><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil one-way $30 p.p.)</em><span class="interior-note">Peter the Great's answer to Versailles &mdash; 64 gravity-fed fountains, 200+ gold-leafed statues, and the Grand Cascade tumbling toward the Baltic Sea, all without a single pump.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at Tsarskoye Selo<span class="interior-note">Inside Catherine Palace: a 325-metre blue-and-gold facade gives way to the Great Hall of mirrors, parquet ballrooms, and the legendary Amber Room &mdash; six tons of carved amber, gold leaf and mirrors, once called the Eighth Wonder of the World.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Iranian / Persian halal dinner</em> · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Peterhof</span>
@@ -1682,14 +1749,14 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Seven &middot; Saturday, 04 July 2026</div>
         <h2 class="day-title reveal-el">A Gentle Goodbye to the <span style="color:var(--crimson)">Neva</span></h2>
         <div class="day-theme reveal-el">&ldquo;Coffee, Canals, and a Long Last Look&rdquo;</div>
-        <p class="day-description reveal-el">
-          After six days of cathedrals and palaces, today belongs to you. Sleep in, nurse a slow coffee, wander Nevsky Prospekt at your own pace &mdash; the glittering <strong>Eliseev Emporium</strong>, Matryoshka dolls, a seat by the Griboedov Canal. Ballet lovers get a <em>second chance</em> at <strong>Swan Lake</strong>, and the day closes with one last summer twilight along the Neva.
+        <p class="day-tagline reveal-el">
+          Russia at your own pace &mdash; <strong>coffee, canals, and one last White Night.</strong>
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">MORN</span><span class="day-schedule-text">Breakfast in the hotel · <strong>leisure morning</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">DAY</span><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling — Nevsky Prospekt, Eliseev, souvenir markets</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">8 PM</span><span class="day-schedule-text"><em>Halal dinner</em> with soft drinks</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">LATE</span><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p.)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast in the hotel · <strong>leisure morning</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling &mdash; Nevsky Prospekt, Eliseev, souvenir markets</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Halal dinner</em> with soft drinks · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p.)</em></span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Leisure</span>
@@ -1724,16 +1791,16 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Eight &middot; Sunday, 05 July 2026</div>
         <h2 class="day-title reveal-el">Farewell to <span style="color:var(--crimson)">Russia</span></h2>
         <div class="day-theme reveal-el">&ldquo;With Stories You'll Tell for Decades&rdquo;</div>
-        <p class="day-description reveal-el">
-          One final Russian breakfast. A last look at the Neva. Your guide accompanies you to <strong>Pulkovo Airport (LED)</strong> for your onward flight. You leave with a camera roll like a coffee-table book, a head full of tsars and ballerinas, and a group of fellow travellers who now feel like <em>family</em>.
+        <p class="day-tagline reveal-el">
+          Pulkovo, departure &mdash; <strong>and a story you'll tell for the rest of your life.</strong>
         </p>
         <p class="day-description reveal-el" style="font-family:var(--serif);font-style:italic;color:var(--gold-dark);font-size:1.2rem;border-top:1px solid rgba(212,168,75,0.3);padding-top:1.5rem;margin-top:1.5rem;">
           &ldquo;<em>Do svidaniya</em>, Russia. Thank you for the palaces, the fountains, the chandeliered subways, the White Nights, and most of all for the company that made them matter.&rdquo;
         </p>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">MORN</span><span class="day-schedule-text">Final breakfast at the hotel · farewells &amp; photos</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">PM</span><span class="day-schedule-text">Group airport transfer · check-in at <strong>Pulkovo Airport (LED)</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-time">EVE</span><span class="day-schedule-text"><strong>Evening flight to Istanbul (IST)</strong> — the journey home with an overflowing heart</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Final breakfast at the hotel · farewells &amp; photos</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <strong>Pulkovo Airport (LED)</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Evening flight to Istanbul (IST)</strong> &mdash; the journey home with an overflowing heart</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Pulkovo Airport</span>
