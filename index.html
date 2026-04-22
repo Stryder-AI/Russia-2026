@@ -44,14 +44,23 @@
    RESET & BASE
    ============================================================ */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  overflow-x:hidden;
+  width:100%;
+  max-width:100vw;
+}
 body{
   font-family:var(--sans);
   color:var(--ink);
   background:var(--cream);
   line-height:1.6;
   overflow-x:hidden;
+  width:100%;
+  max-width:100vw;
   font-weight:400;
+  position:relative;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -631,9 +640,9 @@ section{position:relative}
 }
 .day-number-bg{
   position:absolute;
-  top:-4rem;left:-1rem;
+  top:-2rem;left:-0.5rem;
   font-family:var(--display);
-  font-size:clamp(8rem,18vw,16rem);
+  font-size:clamp(4rem,9vw,7.5rem);
   font-weight:800;
   color:rgba(139,0,0,0.07);
   line-height:1;
@@ -1260,7 +1269,7 @@ section{position:relative}
   .hero-ornament{display:none}
   .highlights-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
   .day{padding:5rem 0 3rem}
-  .day-number-bg{font-size:10rem;top:-2rem}
+  .day-number-bg{font-size:5rem;top:-1.5rem}
   .map-stats{gap:1.5rem}
   .wrap, .wrap-narrow{padding:0 1rem}
   .intro,.summary,.highlights,.hotels,.cta,.map-section{padding-left:0;padding-right:0}
@@ -1404,9 +1413,6 @@ section{position:relative}
           <li class="summary-item"><span class="bullet"></span><span><strong>2</strong> Legendary Capital Cities</span></li>
           <li class="summary-item"><span class="bullet"></span><span><strong>1</strong> Story Your Grandchildren Will Ask About</span></li>
         </ul>
-        <div class="summary-closing reveal-el">
-          Moscow and St. Petersburg are two coins of the same empire &mdash; one glittering with Soviet grandeur, the other with Tsarist grace. You will see them both, back to back, in the warmth of the Russian summer.
-        </div>
       </div>
       <div class="summary-visual reveal-el slide-right">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/1280px-Kremlin_and_Red_Square.1.jpg" alt="St. Basil's Cathedral, Moscow" onerror="imgFail(this,'Red Square &amp; the Kremlin')">
@@ -1424,7 +1430,6 @@ section{position:relative}
     <div class="highlights-head">
       <div class="eyebrow reveal-el">The Greatest Hits</div>
       <h2 class="reveal-el">Highlight <em>Attractions</em></h2>
-      <p class="reveal-el">A curated string of wonders &mdash; from the onion domes of the Kremlin to the Amber Room of Catherine the Great.</p>
     </div>
 
     <div class="highlights-grid">
@@ -1484,9 +1489,6 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day One &middot; Sunday, 28 June 2026</div>
         <h2 class="day-title reveal-el">Arrival in <span style="color:var(--crimson)">Moscow</span></h2>
         <div class="day-theme reveal-el">&ldquo;Welcome to the Capital of Empires&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Sheremetyevo to Arbat &mdash; <strong>your first taste of Moscow under lantern light.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Sheremetyevo Airport (SVO)</strong> · private meet &amp; greet · transfer to hotel</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
@@ -1526,14 +1528,11 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Two &middot; Monday, 29 June 2026</div>
         <h2 class="day-title reveal-el">Behind the <span style="color:var(--crimson)">Kremlin Walls</span></h2>
         <div class="day-theme reveal-el">&ldquo;Where Red Stars and Gold Domes Share the Sky&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Eight centuries of red walls, candy-coloured domes, and <strong>palaces you ride to work.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &middot; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Inside the Armoury Chamber: tsarist crown jewels, Fabergé eggs, gold thrones, and the imperial coronation regalia of the Romanov dynasty.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> (interior) · Lenin's Mausoleum · Alexander Garden · GUM · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva<span class="interior-note">Inside St. Basil's: nine narrow chapels stacked like a labyrinth, with hand-painted floral frescoes covering every wall and ceiling &mdash; nothing like the candy-coloured exterior suggests.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Stalin's &ldquo;palaces for the people&rdquo; &mdash; marble columns, mosaic ceilings, bronze statues and crystal chandeliers, 50 metres underground.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Crown jewels, Fabergé eggs, Romanov regalia.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> (interior) · Lenin's Mausoleum · Alexander Garden · GUM · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva<span class="interior-note">Nine chapels of hand-painted frescoes, wall to ceiling.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Marble, mosaics, chandeliers &mdash; 50 metres underground.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Traditional Russian halal dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -1571,9 +1570,6 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Three &middot; Tuesday, 30 June 2026</div>
         <h2 class="day-title reveal-el">The City of <span style="color:var(--crimson)">Skylines</span></h2>
         <div class="day-theme reveal-el">&ldquo;Soviet Monuments &amp; Modern Moscow From Above&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Soviet ambition from a great height &mdash; <strong>Sparrow Hills, Stalinist towers, and the gold of VDNKH.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &amp; meeting with the guide</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; Sparrow Hills · MSU · the Seven Sisters (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · Bolshoi Theatre exterior · Victory Park</span></li>
@@ -1616,9 +1612,6 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Four &middot; Wednesday, 01 July 2026</div>
         <h2 class="day-title reveal-el">The 250 km/h Dash to <span style="color:var(--gold-bright)">Imperial Russia</span></h2>
         <div class="day-theme reveal-el">&ldquo;From Red Square to the Neva&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Four hours, 650 kilometres &mdash; <strong>Russia changes its accent from Moscow's red to Petersburg's pastel.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · transfer to <strong>Leningradsky Station</strong></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(comfort class seating)</em></span></li>
@@ -1660,12 +1653,9 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Five &middot; Thursday, 02 July 2026</div>
         <h2 class="day-title reveal-el">The City of <span style="color:var(--crimson)">Tsars</span></h2>
         <div class="day-theme reveal-el">&ldquo;Where Every Facade Tells a Romanov Story&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          The city the tsars built to outshine Europe &mdash; <strong>by foot, by canal, by gold dome.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Rostral Columns · Summer Garden<span class="interior-note">Inside Savior on Spilled Blood: 7,500 sq metres of mosaic walls, ceilings and pillars &mdash; one of the largest collections of mosaic art in the world, lit by oil lamps.</span><span class="interior-note">Inside St. Isaac's: malachite and lapis-lazuli columns, mosaic icons, and a soaring 100-metre gilded dome &mdash; climb to the colonnade for the city laid out beneath you.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Rostral Columns · Summer Garden<span class="interior-note">Savior on Spilled Blood: 7,500 sq m of mosaics, lit by oil lamps.</span><span class="interior-note">St. Isaac's: malachite columns and a 100-metre gilded dome.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Neva River &amp; Canal cruise</strong> &mdash; the city as Peter the Great meant you to see it</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Arabian / Middle Eastern halal dinner</em> · overnight in St. Petersburg</span></li>
         </ul>
@@ -1704,13 +1694,10 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Six &middot; Friday, 03 July 2026</div>
         <h2 class="day-title reveal-el">Fountains &amp; The <span style="color:var(--crimson)">Amber Room</span></h2>
         <div class="day-theme reveal-el">&ldquo;The Greatest Palaces in Europe &mdash; Twice Over&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Two palaces. Sixty-four fountains. <strong>Six tons of glowing amber.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil one-way $30 p.p.)</em><span class="interior-note">Peter the Great's answer to Versailles &mdash; 64 gravity-fed fountains, 200+ gold-leafed statues, and the Grand Cascade tumbling toward the Baltic Sea, all without a single pump.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at Tsarskoye Selo<span class="interior-note">Inside Catherine Palace: a 325-metre blue-and-gold facade gives way to the Great Hall of mirrors, parquet ballrooms, and the legendary Amber Room &mdash; six tons of carved amber, gold leaf and mirrors, once called the Eighth Wonder of the World.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil one-way $30 p.p.)</em><span class="interior-note">64 gravity-fed fountains, 200+ gold statues &mdash; no pumps.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at Tsarskoye Selo<span class="interior-note">Mirror halls, parquet ballrooms, and the Amber Room &mdash; six tons of carved amber.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Iranian / Persian halal dinner</em> · overnight in St. Petersburg</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
         </ul>
@@ -1749,9 +1736,6 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Seven &middot; Saturday, 04 July 2026</div>
         <h2 class="day-title reveal-el">A Gentle Goodbye to the <span style="color:var(--crimson)">Neva</span></h2>
         <div class="day-theme reveal-el">&ldquo;Coffee, Canals, and a Long Last Look&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Russia at your own pace &mdash; <strong>coffee, canals, and one last White Night.</strong>
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast in the hotel · <strong>leisure morning</strong></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling &mdash; Nevsky Prospekt, Eliseev, souvenir markets</span></li>
@@ -1791,12 +1775,6 @@ section{position:relative}
         <div class="day-eyebrow reveal-el">Day Eight &middot; Sunday, 05 July 2026</div>
         <h2 class="day-title reveal-el">Farewell to <span style="color:var(--crimson)">Russia</span></h2>
         <div class="day-theme reveal-el">&ldquo;With Stories You'll Tell for Decades&rdquo;</div>
-        <p class="day-tagline reveal-el">
-          Pulkovo, departure &mdash; <strong>and a story you'll tell for the rest of your life.</strong>
-        </p>
-        <p class="day-description reveal-el" style="font-family:var(--serif);font-style:italic;color:var(--gold-dark);font-size:1.2rem;border-top:1px solid rgba(212,168,75,0.3);padding-top:1.5rem;margin-top:1.5rem;">
-          &ldquo;<em>Do svidaniya</em>, Russia. Thank you for the palaces, the fountains, the chandeliered subways, the White Nights, and most of all for the company that made them matter.&rdquo;
-        </p>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Final breakfast at the hotel · farewells &amp; photos</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <strong>Pulkovo Airport (LED)</strong></span></li>
