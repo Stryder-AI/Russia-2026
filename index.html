@@ -1570,17 +1570,229 @@ section{position:relative}
 }
 
 /* ============================================================
-   BANK / FLIGHT BLOCKS
+   FLIGHT SCHEDULE — placed under the route map
+   ============================================================ */
+.flights{
+  padding:6rem 0;
+  background:linear-gradient(180deg, #f9f1dc 0%, var(--cream) 100%);
+  position:relative;
+}
+.flights-head{text-align:center;margin-bottom:3rem}
+.flights-head h2{
+  font-family:var(--display);
+  font-size:clamp(2.3rem,5vw,4rem);
+  color:var(--crimson-deep);
+  font-weight:800;
+  line-height:1;
+  margin:.4rem 0 .8rem;
+}
+.flights-head p{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.15rem;
+  font-weight:600;
+  max-width:680px;margin:0 auto;
+}
+
+.flight-leg{
+  max-width:1100px;
+  margin:0 auto 2.5rem;
+}
+.flight-leg-title{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.2rem;
+  padding-bottom:.6rem;
+  border-bottom:2px solid var(--crimson);
+}
+.flight-leg-title .leg-label{
+  font-family:var(--display);
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--crimson-deep);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.flight-leg-title .leg-arrow{
+  font-size:1.4rem;color:var(--gold-dark);
+}
+.flight-leg-title .leg-meta{
+  margin-left:auto;
+  font-family:var(--display);
+  font-weight:700;
+  color:var(--gold-dark);
+  font-size:.85rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.flight-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+}
+.flight-card{
+  background:var(--cream);
+  border:2px solid var(--crimson);
+  border-left:6px solid var(--crimson);
+  border-radius:5px;
+  padding:1.4rem 1.5rem;
+  box-shadow:0 12px 26px -10px rgba(139,0,0,0.22);
+  position:relative;
+  overflow:hidden;
+}
+.flight-card-head{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.2rem;
+  padding-bottom:.8rem;
+  border-bottom:1px dashed rgba(139,0,0,0.3);
+}
+.flight-airline{
+  display:flex;align-items:center;gap:.6rem;
+}
+.flight-airline-badge{
+  width:42px;height:42px;
+  background:linear-gradient(135deg,var(--crimson),var(--crimson-deep));
+  color:var(--gold-bright);
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  flex-shrink:0;
+}
+.flight-airline-text{
+  font-family:var(--display);
+  color:var(--crimson-deep);
+  font-weight:800;
+  line-height:1.1;
+}
+.flight-airline-text .airline-name{
+  display:block;
+  font-size:1.05rem;
+  letter-spacing:.05em;
+}
+.flight-airline-text .flight-no{
+  display:block;
+  font-size:.85rem;
+  color:var(--gold-dark);
+  letter-spacing:.1em;
+  margin-top:.15rem;
+}
+.flight-date{
+  font-family:var(--display);
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:.1em;
+  text-align:right;
+  text-transform:uppercase;
+  background:rgba(212,168,75,0.18);
+  padding:.4rem .7rem;
+  border-radius:3px;
+  border:1px solid var(--gold);
+}
+
+.flight-route{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1rem;
+  align-items:center;
+}
+.flight-stop{
+  text-align:center;
+}
+.flight-stop.from{text-align:left}
+.flight-stop.to{text-align:right}
+.flight-time{
+  font-family:var(--display);
+  font-size:2rem;
+  font-weight:800;
+  color:var(--crimson-deep);
+  line-height:1;
+}
+.flight-time .next-day{
+  font-size:.7rem;
+  color:var(--crimson);
+  vertical-align:top;
+  font-weight:700;
+  margin-left:.2rem;
+  letter-spacing:.05em;
+}
+.flight-iata{
+  font-family:var(--display);
+  font-size:1.25rem;
+  font-weight:800;
+  color:var(--ink);
+  letter-spacing:.15em;
+  margin-top:.35rem;
+}
+.flight-city{
+  font-family:var(--serif);
+  font-size:.85rem;
+  color:var(--ink);
+  font-weight:600;
+  margin-top:.15rem;
+  font-style:italic;
+}
+.flight-plane{
+  display:flex;flex-direction:column;align-items:center;
+  color:var(--gold-dark);
+  font-size:1.5rem;
+  position:relative;
+  padding:0 .5rem;
+}
+.flight-plane .plane-line{
+  width:60px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--crimson),transparent);
+  margin-top:.4rem;
+}
+.flight-plane .plane-icon{
+  color:var(--crimson);
+  font-size:1.6rem;
+}
+
+@media (max-width:768px){
+  .flight-row{grid-template-columns:1fr;gap:1rem}
+  .flight-card{padding:1.1rem 1.2rem}
+  .flight-time{font-size:1.6rem}
+  .flight-iata{font-size:1.05rem}
+  .flight-leg-title .leg-meta{display:none}
+}
+
+/* Airfare warning box — must not be missed */
+.airfare-warning{
+  max-width:1100px;
+  margin:1.5rem auto 0;
+  padding:1.4rem 1.6rem;
+  background:var(--crimson);
+  border:3px solid var(--crimson-deep);
+  border-radius:5px;
+  color:#fff7e0;
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:1.1rem;
+  line-height:1.55;
+  text-align:center;
+  box-shadow:0 14px 30px -10px rgba(139,0,0,0.5);
+}
+.airfare-warning strong{
+  color:var(--gold-bright);
+  font-weight:900;
+}
+
+/* ============================================================
+   BANK DETAILS — now full-width
    ============================================================ */
 .bank-flight{
   padding:6rem 0;
   background:linear-gradient(180deg, var(--parchment-warm) 0%, #f3e8cf 100%);
 }
 .bank-flight-grid{
-  max-width:1100px;
+  max-width:900px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   gap:2rem;
 }
 .bf-card{
@@ -1840,6 +2052,7 @@ section{position:relative}
       <a href="#day-7" class="day-nav-dot">Day 7</a>
       <a href="#day-8" class="day-nav-dot">Day 8</a>
       <a href="#map" class="day-nav-dot">Route</a>
+      <a href="#flights" class="day-nav-dot">Flights</a>
       <a href="#hotels" class="day-nav-dot">Hotels</a>
       <a href="#inclusions" class="day-nav-dot">Inclusions</a>
       <a href="#visa" class="day-nav-dot">Visa</a>
@@ -2012,7 +2225,7 @@ section{position:relative}
         <h2 class="day-title reveal-el">Arrival in <span style="color:var(--crimson)">Moscow</span></h2>
         <div class="day-theme reveal-el">&ldquo;Welcome to the Capital of Empires&rdquo;</div>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Sheremetyevo Airport (SVO)</strong> · private meet &amp; greet · transfer to hotel</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Moscow Domodedovo Airport (DME)</strong> on <strong>Emirates EK 129</strong> at <strong>06:40</strong> · private meet &amp; greet · transfer to hotel</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Evening stroll down the legendary <strong>Arbat Street</strong></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Spectacular evening at Moscow's famous Nikulin's Circus</strong></span></li>
@@ -2298,12 +2511,14 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;With Stories You'll Tell for Decades&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Final breakfast at the hotel · farewells &amp; photos</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <strong>Pulkovo Airport (LED)</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Evening flight to Istanbul (IST)</strong> &mdash; the journey home with an overflowing heart</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <strong>St. Petersburg Pulkovo Airport (LED)</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Emirates EK 176 to Dubai</strong> · departs <strong>23:05</strong>, arrives DXB <strong>06:10</strong> on 06 July &mdash; the journey home with an overflowing heart</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Connecting <strong>Emirates EK 600 Dubai &rarr; Karachi</strong> · departs <strong>07:40</strong>, arrives <strong>10:45</strong> on 06 July</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Pulkovo Airport</span>
-          <span class="day-tag">Onward to IST</span>
+          <span class="day-tag">Emirates EK 176 / EK 600</span>
+          <span class="day-tag">Onward to Karachi</span>
         </div>
       </div>
 
@@ -2355,6 +2570,164 @@ section{position:relative}
         <div class="map-stat-num">2</div>
         <div class="map-stat-label">International Flights</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FLIGHT SCHEDULE
+     ============================================================ -->
+<section class="flights" id="flights">
+  <div class="wrap">
+    <div class="flights-head">
+      <div class="eyebrow reveal-el">By Air</div>
+      <h2 class="reveal-el">Flight Schedule</h2>
+      <p class="reveal-el">All flights on <strong>Emirates</strong> &mdash; Karachi to Moscow via Dubai on the way out, St. Petersburg to Karachi via Dubai on the way home.</p>
+    </div>
+
+    <!-- OUTBOUND -->
+    <div class="flight-leg reveal-el">
+      <div class="flight-leg-title">
+        <span class="leg-label">Outbound</span>
+        <span class="leg-arrow">&rarr;</span>
+        <span class="leg-label" style="color:var(--gold-dark);font-size:1.15rem">Karachi to Moscow</span>
+        <span class="leg-meta">27&ndash;28 June 2026</span>
+      </div>
+
+      <div class="flight-row">
+        <div class="flight-card">
+          <div class="flight-card-head">
+            <div class="flight-airline">
+              <div class="flight-airline-badge">&#9992;&#65039;</div>
+              <div class="flight-airline-text">
+                <span class="airline-name">Emirates</span>
+                <span class="flight-no">Flight EK 603</span>
+              </div>
+            </div>
+            <div class="flight-date">Sat, 27 Jun</div>
+          </div>
+          <div class="flight-route">
+            <div class="flight-stop from">
+              <div class="flight-time">22:55</div>
+              <div class="flight-iata">KHI</div>
+              <div class="flight-city">Karachi</div>
+            </div>
+            <div class="flight-plane">
+              <div class="plane-icon">&#9992;&#65039;</div>
+              <div class="plane-line"></div>
+            </div>
+            <div class="flight-stop to">
+              <div class="flight-time">00:05<span class="next-day">+1</span></div>
+              <div class="flight-iata">DXB</div>
+              <div class="flight-city">Dubai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flight-card">
+          <div class="flight-card-head">
+            <div class="flight-airline">
+              <div class="flight-airline-badge">&#9992;&#65039;</div>
+              <div class="flight-airline-text">
+                <span class="airline-name">Emirates</span>
+                <span class="flight-no">Flight EK 129</span>
+              </div>
+            </div>
+            <div class="flight-date">Sun, 28 Jun</div>
+          </div>
+          <div class="flight-route">
+            <div class="flight-stop from">
+              <div class="flight-time">02:20</div>
+              <div class="flight-iata">DXB</div>
+              <div class="flight-city">Dubai</div>
+            </div>
+            <div class="flight-plane">
+              <div class="plane-icon">&#9992;&#65039;</div>
+              <div class="plane-line"></div>
+            </div>
+            <div class="flight-stop to">
+              <div class="flight-time">06:40</div>
+              <div class="flight-iata">DME</div>
+              <div class="flight-city">Moscow Domodedovo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RETURN -->
+    <div class="flight-leg reveal-el">
+      <div class="flight-leg-title">
+        <span class="leg-label">Return</span>
+        <span class="leg-arrow">&rarr;</span>
+        <span class="leg-label" style="color:var(--gold-dark);font-size:1.15rem">St. Petersburg to Karachi</span>
+        <span class="leg-meta">05&ndash;06 July 2026</span>
+      </div>
+
+      <div class="flight-row">
+        <div class="flight-card">
+          <div class="flight-card-head">
+            <div class="flight-airline">
+              <div class="flight-airline-badge">&#9992;&#65039;</div>
+              <div class="flight-airline-text">
+                <span class="airline-name">Emirates</span>
+                <span class="flight-no">Flight EK 176</span>
+              </div>
+            </div>
+            <div class="flight-date">Sun, 05 Jul</div>
+          </div>
+          <div class="flight-route">
+            <div class="flight-stop from">
+              <div class="flight-time">23:05</div>
+              <div class="flight-iata">LED</div>
+              <div class="flight-city">St. Petersburg Pulkovo</div>
+            </div>
+            <div class="flight-plane">
+              <div class="plane-icon">&#9992;&#65039;</div>
+              <div class="plane-line"></div>
+            </div>
+            <div class="flight-stop to">
+              <div class="flight-time">06:10<span class="next-day">+1</span></div>
+              <div class="flight-iata">DXB</div>
+              <div class="flight-city">Dubai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flight-card">
+          <div class="flight-card-head">
+            <div class="flight-airline">
+              <div class="flight-airline-badge">&#9992;&#65039;</div>
+              <div class="flight-airline-text">
+                <span class="airline-name">Emirates</span>
+                <span class="flight-no">Flight EK 600</span>
+              </div>
+            </div>
+            <div class="flight-date">Mon, 06 Jul</div>
+          </div>
+          <div class="flight-route">
+            <div class="flight-stop from">
+              <div class="flight-time">07:40</div>
+              <div class="flight-iata">DXB</div>
+              <div class="flight-city">Dubai</div>
+            </div>
+            <div class="flight-plane">
+              <div class="plane-icon">&#9992;&#65039;</div>
+              <div class="plane-line"></div>
+            </div>
+            <div class="flight-stop to">
+              <div class="flight-time">10:45</div>
+              <div class="flight-iata">KHI</div>
+              <div class="flight-city">Karachi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="airfare-warning reveal-el">
+      <strong>NOTE:</strong> Airfare prices are subject to change depending on the time of booking &mdash; <strong>THE EARLIER, THE BETTER.</strong>
+      <br>You're welcome to book your tickets through your own travel agent &mdash; our flight services are also available if you prefer.
     </div>
   </div>
 </section>
@@ -2565,7 +2938,7 @@ section{position:relative}
       <ul>
         <li class="deadline">
           <span><strong>Last Date of Confirmation &amp; Payment</strong></span>
-          <span><strong>30 March 2026</strong></span>
+          <span><strong>30 April 2026</strong></span>
         </li>
         <li>
           <span>Advance Payment by 30 April <em>(50%)</em></span>
@@ -2587,7 +2960,7 @@ section{position:relative}
 <section class="bank-flight" id="payment">
   <div class="wrap">
     <div class="bank-flight-grid">
-      <div class="bf-card reveal-el slide-left">
+      <div class="bf-card reveal-el">
         <h3>Bank Details for Payment</h3>
         <div class="field">
           <span class="field-label">Bank</span>
@@ -2610,18 +2983,6 @@ section{position:relative}
         </div>
       </div>
 
-      <div class="bf-card reveal-el slide-right">
-        <h3>Flight Schedule &amp; Cost</h3>
-        <div class="flight-note">
-          <strong>From Islamabad.</strong> Flight numbers and timings will be shared on WhatsApp as per the latest schedule.
-        </div>
-        <div class="flight-note">
-          You're welcome to book your tickets through your own travel agent &mdash; our flight services are available too if you prefer.
-        </div>
-        <div class="flight-warning">
-          <strong>Note:</strong> Airfare prices are subject to change depending on time of booking &mdash; <strong>the earlier, the better</strong>.
-        </div>
-      </div>
     </div>
   </div>
 </section>
