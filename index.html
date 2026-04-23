@@ -255,10 +255,11 @@ section{position:relative}
 }
 .brand{
   display:flex;align-items:center;gap:.7rem;
-  color:var(--gold);
+  color:var(--gold-bright);
   font-family:var(--display);
-  font-size:.8rem;font-weight:700;
+  font-size:1.1rem;font-weight:800;
   letter-spacing:.22em;text-transform:uppercase;
+  text-shadow:0 2px 12px rgba(0,0,0,0.6);
 }
 .brand-seal{
   width:40px;height:40px;border-radius:50%;
@@ -1189,6 +1190,104 @@ section{position:relative}
 .train-connector-route em{color:var(--crimson-deep);font-weight:700;font-style:normal}
 
 /* ============================================================
+   INCLUSIONS — selling-point grid
+   ============================================================ */
+.inclusions{
+  padding:7rem 0;
+  background:linear-gradient(180deg, #f3e8cf 0%, var(--cream) 100%);
+  position:relative;
+}
+.inclusions::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(135deg,
+      transparent 0, transparent 60px,
+      rgba(139,0,0,0.03) 60px, rgba(139,0,0,0.03) 61px);
+  pointer-events:none;
+}
+.inclusions-head{text-align:center;margin-bottom:4rem;position:relative;z-index:2}
+.inclusions-head h2{
+  font-family:var(--display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  color:var(--crimson-deep);
+  line-height:1;
+  font-weight:800;
+  margin:.4rem 0 1rem;
+  letter-spacing:-.01em;
+}
+.inclusions-head p{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.2rem;
+  font-weight:600;
+  max-width:640px;
+  margin:0 auto;
+}
+.inclusions-grid{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
+  max-width:1100px;
+  margin:0 auto;
+  position:relative;z-index:2;
+}
+.inclusion-card{
+  display:flex;
+  align-items:flex-start;
+  gap:1.2rem;
+  padding:1.6rem 1.7rem;
+  background:var(--cream);
+  border:2px solid var(--crimson);
+  border-left:6px solid var(--crimson);
+  border-radius:4px;
+  box-shadow:0 14px 30px -12px rgba(139,0,0,0.25);
+  transition:transform .3s ease, box-shadow .3s ease;
+  position:relative;
+}
+.inclusion-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 36px -10px rgba(139,0,0,0.4);
+}
+.inclusion-icon{
+  flex-shrink:0;
+  width:54px;height:54px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--crimson),var(--crimson-deep));
+  color:var(--gold-bright);
+  font-family:var(--display);
+  font-size:1.5rem;
+  font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(139,0,0,0.35);
+  border:2px solid var(--gold);
+}
+.inclusion-text{flex:1;min-width:0}
+.inclusion-title{
+  font-family:var(--display);
+  font-size:1.35rem;
+  font-weight:800;
+  color:var(--crimson-deep);
+  margin-bottom:.3rem;
+  letter-spacing:.01em;
+  line-height:1.15;
+}
+.inclusion-desc{
+  font-family:var(--serif);
+  font-size:1rem;
+  font-weight:500;
+  color:var(--ink);
+  line-height:1.55;
+}
+@media (max-width:768px){
+  .inclusions-grid{grid-template-columns:1fr;gap:1rem}
+  .inclusion-card{padding:1.2rem 1.3rem;gap:1rem}
+  .inclusion-icon{width:46px;height:46px;font-size:1.2rem}
+  .inclusion-title{font-size:1.15rem}
+  .inclusion-desc{font-size:.95rem}
+}
+
+/* ============================================================
    CTA / FOOTER
    ============================================================ */
 .cta{
@@ -1297,8 +1396,7 @@ section{position:relative}
 }
 @media (max-width:640px){
   .hero-header{padding:0 1rem}
-  .brand{font-size:.65rem;gap:.4rem}
-  .brand span{display:none}
+  .brand{font-size:.85rem;gap:.4rem;letter-spacing:.15em}
   .hero-meta{padding:.6rem 1rem;font-size:.7rem;letter-spacing:.15em}
   .hero-ornament{display:none}
   .highlights-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
@@ -1363,6 +1461,7 @@ section{position:relative}
       <a href="#day-8" class="day-nav-dot">Day 8</a>
       <a href="#map" class="day-nav-dot">Route</a>
       <a href="#hotels" class="day-nav-dot">Hotels</a>
+      <a href="#inclusions" class="day-nav-dot">Inclusions</a>
     </div>
   </div>
 </nav>
@@ -1375,12 +1474,10 @@ section{position:relative}
 
   <div class="hero-header">
     <div class="brand">
-      <div class="brand-seal">ETB</div>
       <span>Exclusive Travel Buddies</span>
     </div>
     <div class="brand">
       <span>Bukhari Group &middot; Since 1973</span>
-      <div class="brand-seal right">BG</div>
     </div>
   </div>
 
@@ -1912,13 +2009,78 @@ section{position:relative}
       </div>
     </div>
 
-    <div class="divider" style="margin-top:4rem"><span class="divider-diamond"></span></div>
-    <div style="text-align:center" class="reveal-el">
-      <div class="eyebrow" style="margin-bottom:.8rem">Also Included</div>
-      <div style="font-family:var(--serif);font-size:1.05rem;color:var(--ink-soft);max-width:720px;margin:0 auto;line-height:1.8">
-        English-speaking guide throughout &middot; Private A/C transfers &middot; 7 halal dinners with soft drinks &middot; All tours and admissions per itinerary &middot; Unlimited bottled water &middot; Headphones for group tours
-      </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INCLUSIONS — selling-point list
+     ============================================================ -->
+<section class="inclusions" id="inclusions">
+  <div class="wrap">
+    <div class="inclusions-head">
+      <div class="eyebrow reveal-el">What's in the Box</div>
+      <h2 class="reveal-el">Inclusions</h2>
+      <p class="reveal-el">Everything below is taken care of &mdash; you arrive, you experience, we handle the rest.</p>
     </div>
+
+    <ul class="inclusions-grid">
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">★</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">4&star; Hotels</div>
+          <div class="inclusion-desc">7 nights in hand-picked imperial-grade hotels in the heart of each city &mdash; breakfast included.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#127869;&#65039;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">7 Halal Dinners</div>
+          <div class="inclusion-desc">Across 5 cuisines &mdash; Indian, Russian, Mediterranean, Arabian and Persian &mdash; with soft drinks.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#128646;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">Sapsan Bullet Train</div>
+          <div class="inclusion-desc">Comfort-class seating Moscow &rarr; St. Petersburg, 250 km/h, 4 hours.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#127894;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">All Tours &amp; Admissions</div>
+          <div class="inclusion-desc">Every entry ticket, museum admission and excursion listed in the itinerary &mdash; no surprises at the gate.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#128099;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">English-Speaking Guide</div>
+          <div class="inclusion-desc">A dedicated guide with you throughout, in both Moscow and St. Petersburg.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#128665;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">Private A/C Transfers</div>
+          <div class="inclusion-desc">Airport pickups, drop-offs and every group transfer in private air-conditioned coaches.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#127870;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">Bottled Water</div>
+          <div class="inclusion-desc">Unlimited bottled water on every coach and every tour day.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#127911;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">Group Headphones</div>
+          <div class="inclusion-desc">Wireless audio sets for every guided tour &mdash; hear every word, even at the back.</div>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
