@@ -2543,7 +2543,7 @@ section{position:relative}
     <div class="map-head">
       <div class="eyebrow reveal-el" style="color:var(--gold-bright)">The Journey</div>
       <h2 class="reveal-el">Your Full <em>Route</em></h2>
-      <p class="reveal-el">Islamabad &rarr; Moscow by air &middot; Moscow &rarr; St. Petersburg by Sapsan &middot; St. Petersburg &rarr; Islamabad home. Three legs, two capitals, eight unforgettable days.</p>
+      <p class="reveal-el">Karachi &rarr; Dubai &rarr; Moscow by Emirates &middot; Moscow &rarr; St. Petersburg by Sapsan &middot; St. Petersburg &rarr; Dubai &rarr; Karachi home. Five legs, two capitals, eight unforgettable days.</p>
     </div>
     <div class="map-container reveal-el">
       <div id="leaflet-map"></div>
@@ -2552,7 +2552,7 @@ section{position:relative}
         <div class="map-legend-row"><span class="map-legend-swatch train"></span>Sapsan High-Speed Train</div>
       </div>
     </div>
-    <div class="map-caption reveal-el">&mdash; Three legs &middot; Two capitals &middot; One unforgettable loop &mdash;</div>
+    <div class="map-caption reveal-el">&mdash; Five legs &middot; Two capitals &middot; One unforgettable loop &mdash;</div>
     <div class="map-stats">
       <div class="map-stat reveal-el">
         <div class="map-stat-num">8</div>
@@ -2567,8 +2567,8 @@ section{position:relative}
         <div class="map-stat-label">km by Sapsan</div>
       </div>
       <div class="map-stat reveal-el">
-        <div class="map-stat-num">2</div>
-        <div class="map-stat-label">International Flights</div>
+        <div class="map-stat-num">4</div>
+        <div class="map-stat-label">Emirates Flights</div>
       </div>
     </div>
   </div>
@@ -3214,10 +3214,11 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 window.addEventListener('load', () => {
   if(typeof L === 'undefined'){ return; }
 
-  // City coordinates
-  const isb    = [33.6844, 73.0479];   // Islamabad (Benazir Bhutto Intl ~ ISB)
-  const moscow = [55.7558, 37.6173];   // SVO Sheremetyevo region
-  const spb    = [59.9311, 30.3609];   // Pulkovo region
+  // City / airport coordinates
+  const khi    = [24.8607, 67.0011];   // Karachi (Jinnah Intl)
+  const dxb    = [25.2532, 55.3657];   // Dubai International
+  const moscow = [55.4146, 37.8997];   // Moscow Domodedovo (DME)
+  const spb    = [59.8003, 30.2625];   // St. Petersburg Pulkovo (LED)
 
   const map = L.map('leaflet-map', {
     zoomControl:false,
@@ -3256,19 +3257,26 @@ window.addEventListener('load', () => {
     return pts;
   }
 
-  // Three legs
-  const outbound = greatCircle(isb, moscow);              // Day 1 — flight
-  const trainLeg = [                                      // Day 4 — Sapsan
+  // Five legs — four flights + the Sapsan train
+  const outA = greatCircle(khi, dxb);     // EK 603 — KHI → DXB (27 Jun)
+  const outB = greatCircle(dxb, moscow);  // EK 129 — DXB → DME (28 Jun)
+  const trainLeg = [                      // Sapsan — Day 4
     moscow, [56.8, 36.5], [57.6, 35.3], [58.5, 33.5], [59.3, 31.8], spb
   ];
-  const returnLeg = greatCircle(spb, isb);                // Day 8 — flight
+  const retA = greatCircle(spb, dxb);     // EK 176 — LED → DXB (05 Jul)
+  const retB = greatCircle(dxb, khi);     // EK 600 — DXB → KHI (06 Jul)
 
-  // --- Flight paths (dashed gold) -----------------------------------------
-  const flightOpts = {color:'#f4c95d',weight:2.5,opacity:.85,dashArray:'6,8',lineCap:'round'};
-  const outLine = L.polyline(outbound, flightOpts).addTo(map)
-    .bindTooltip('Day 1 · Islamabad → Moscow (air)', {sticky:true,direction:'top',className:'route-tooltip'});
-  const retLine = L.polyline(returnLeg, flightOpts).addTo(map)
-    .bindTooltip('Day 8 · St. Petersburg → Islamabad (air)', {sticky:true,direction:'top',className:'route-tooltip'});
+  // --- Flight paths (dashed gold, animated in flight direction) -----------
+  const flightOpts = {color:'#f4c95d',weight:2.8,opacity:.9,dashArray:'8,10',lineCap:'round'};
+
+  const outALine = L.polyline(outA, flightOpts).addTo(map)
+    .bindTooltip('EK 603 · Karachi → Dubai (27 Jun)', {sticky:true,direction:'top',className:'route-tooltip'});
+  const outBLine = L.polyline(outB, flightOpts).addTo(map)
+    .bindTooltip('EK 129 · Dubai → Moscow (28 Jun)', {sticky:true,direction:'top',className:'route-tooltip'});
+  const retALine = L.polyline(retA, flightOpts).addTo(map)
+    .bindTooltip('EK 176 · St. Petersburg → Dubai (05 Jul)', {sticky:true,direction:'top',className:'route-tooltip'});
+  const retBLine = L.polyline(retB, flightOpts).addTo(map)
+    .bindTooltip('EK 600 · Dubai → Karachi (06 Jul)', {sticky:true,direction:'top',className:'route-tooltip'});
 
   // --- Train leg (animated solid gold) ------------------------------------
   const trainLine = L.polyline(trainLeg, {
@@ -3276,10 +3284,14 @@ window.addEventListener('load', () => {
     dashArray:'1,8',dashOffset:'0',lineCap:'round'
   }).addTo(map)
     .bindTooltip('Day 4 · Sapsan 250 km/h · Moscow → St. Petersburg', {sticky:true,direction:'top',className:'route-tooltip'});
-  let offset = 0;
+
+  // Animate every dashed line in the direction of travel
+  // (decrementing dashOffset shifts the dashes forward along the polyline)
+  const animatedLines = [outALine, outBLine, retALine, retBLine, trainLine];
+  let dashOffset = 0;
   setInterval(() => {
-    offset = (offset - 1) % 100;
-    trainLine.setStyle({dashOffset: offset + ''});
+    dashOffset = (dashOffset - 1) % 1000;
+    animatedLines.forEach(ln => ln.setStyle({dashOffset: dashOffset + ''}));
   }, 40);
 
   // --- City pins ----------------------------------------------------------
@@ -3289,12 +3301,14 @@ window.addEventListener('load', () => {
     iconSize:[18,18],
     iconAnchor:[9,9]
   });
-  L.marker(isb, {icon:makeCityIcon('ISLAMABAD')}).addTo(map)
-    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Islamabad</strong><br><em>Departure (28 Jun) · Return (05 Jul)</em>');
+  L.marker(khi,    {icon:makeCityIcon('KARACHI')}).addTo(map)
+    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Karachi (KHI)</strong><br><em>EK 603 dep 22:55 · 27 Jun &middot; Return: EK 600 arr 10:45 · 06 Jul</em>');
+  L.marker(dxb,    {icon:makeCityIcon('DUBAI')}).addTo(map)
+    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Dubai (DXB)</strong><br><em>Outbound &amp; return connection — Emirates hub</em>');
   L.marker(moscow, {icon:makeCityIcon('MOSCOW')}).addTo(map)
-    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Moscow</strong><br><em>Days 1–4 · Kremlin, Red Square, VDNKH</em>');
-  L.marker(spb, {icon:makeCityIcon('ST. PETERSBURG')}).addTo(map)
-    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">St. Petersburg</strong><br><em>Days 4–8 · Hermitage, Peterhof, Amber Room</em>');
+    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Moscow (DME)</strong><br><em>EK 129 arr 06:40 · 28 Jun &middot; Days 1–4 · Kremlin, Red Square, VDNKH</em>');
+  L.marker(spb,    {icon:makeCityIcon('ST. PETERSBURG')}).addTo(map)
+    .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">St. Petersburg (LED)</strong><br><em>Days 4–8 · Hermitage, Peterhof, Amber Room &middot; EK 176 dep 23:05 · 05 Jul</em>');
 
   // --- Mid-point travel icons (plane + train) -----------------------------
   const midOf = (path) => path[Math.floor(path.length/2)];
@@ -3306,7 +3320,6 @@ window.addEventListener('load', () => {
     html: `<div class="leg-marker-icon train">&#128646;</div>`,
     className:'leg-marker',iconSize:[32,32],iconAnchor:[16,16]
   });
-  // Plane rotations (bearing pointing roughly from start → end)
   const bearing = (a, b) => {
     const φ1 = toRad(a[0]), φ2 = toRad(b[0]);
     const Δλ = toRad(b[1] - a[1]);
@@ -3314,12 +3327,15 @@ window.addEventListener('load', () => {
     const x = Math.cos(φ1)*Math.sin(φ2) - Math.sin(φ1)*Math.cos(φ2)*Math.cos(Δλ);
     return (toDeg(Math.atan2(y, x)) + 360) % 360;
   };
-  L.marker(midOf(outbound),  {icon:planeIcon(bearing(isb, moscow) - 45), interactive:false}).addTo(map);
-  L.marker(midOf(returnLeg), {icon:planeIcon(bearing(spb, isb)   - 45), interactive:false}).addTo(map);
-  L.marker(midOf(trainLeg),  {icon:trainIcon, interactive:false}).addTo(map);
+  // Aircraft glyph in the SVG points up-right (≈45°), so subtract 45 to align with bearing
+  L.marker(midOf(outA),     {icon:planeIcon(bearing(khi, dxb)    - 45), interactive:false}).addTo(map);
+  L.marker(midOf(outB),     {icon:planeIcon(bearing(dxb, moscow) - 45), interactive:false}).addTo(map);
+  L.marker(midOf(retA),     {icon:planeIcon(bearing(spb, dxb)    - 45), interactive:false}).addTo(map);
+  L.marker(midOf(retB),     {icon:planeIcon(bearing(dxb, khi)    - 45), interactive:false}).addTo(map);
+  L.marker(midOf(trainLeg), {icon:trainIcon, interactive:false}).addTo(map);
 
   // Fit the view to the full route
-  const all = L.featureGroup([outLine, trainLine, retLine]);
+  const all = L.featureGroup([outALine, outBLine, trainLine, retALine, retBLine]);
   map.fitBounds(all.getBounds(), {padding:[60, 60]});
 
   // Smart scroll-zoom toggle
