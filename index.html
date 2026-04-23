@@ -280,31 +280,48 @@ section{position:relative}
 .hero-eyebrow{
   font-family:var(--display);
   color:var(--gold-bright);
-  letter-spacing:.42em;
-  font-size:.85rem;font-weight:600;
-  margin-bottom:2rem;
-  opacity:0;animation:fadeUp 1s .6s forwards;
+  letter-spacing:.18em;
+  font-size:clamp(2.4rem, 6vw, 5rem);
+  font-weight:800;
+  margin-bottom:1.5rem;
+  text-shadow:
+    0 0 18px rgba(244,201,93,0.65),
+    0 0 35px rgba(244,201,93,0.4),
+    0 4px 20px rgba(0,0,0,0.7);
+  animation:fadeUp 1s .6s forwards, glowPulse 3s ease-in-out 1.6s infinite alternate;
+  opacity:0;
+}
+@keyframes glowPulse{
+  from{text-shadow:0 0 18px rgba(244,201,93,0.55), 0 0 35px rgba(244,201,93,0.3), 0 4px 20px rgba(0,0,0,0.7)}
+  to{text-shadow:0 0 28px rgba(244,201,93,0.85), 0 0 55px rgba(244,201,93,0.55), 0 4px 24px rgba(0,0,0,0.7)}
+}
+.hero-eyebrow .diamond{
+  display:inline-block;
+  margin:0 .4em;
+  font-size:.7em;
+  vertical-align:.05em;
+  color:var(--gold);
 }
 
 .hero-title{
   font-family:var(--display);
-  font-size:clamp(3rem, 8vw, 7.5rem);
+  font-size:clamp(1.6rem, 4vw, 3.2rem);
   font-weight:700;
-  line-height:.95;
-  letter-spacing:.02em;
+  line-height:1.05;
+  letter-spacing:.2em;
   color:var(--parchment);
-  text-shadow:0 4px 30px rgba(0,0,0,0.6);
-  margin-bottom:1rem;
+  text-shadow:0 4px 20px rgba(0,0,0,0.7);
+  margin-bottom:.8rem;
   opacity:0;animation:fadeUp 1s .9s forwards;
 }
 .hero-title .amp{
-  display:block;
+  display:inline;
   font-family:var(--serif);
   font-style:italic;
   font-weight:400;
   color:var(--gold-bright);
-  font-size:.55em;
-  margin:.3em 0;
+  font-size:1.05em;
+  margin:0 .25em;
 }
 .hero-subtitle{
   font-family:var(--serif);
@@ -639,8 +656,8 @@ section{position:relative}
 .day-transit .day-schedule-item{background:rgba(245,236,217,0.06);border-color:rgba(244,201,93,0.3)}
 .day-transit .day-schedule-time{color:var(--gold-bright)}
 .day-transit .day-schedule-text{color:var(--parchment)}
-.day-transit .day-schedule-text strong{color:var(--gold-bright);font-weight:600}
-.day-transit .day-schedule-text em{color:rgba(244,201,93,0.75)}
+.day-transit .day-schedule-text strong{color:var(--parchment);font-weight:600}
+.day-transit .day-schedule-text em{color:var(--parchment);font-weight:500;font-style:italic}
 .day-transit .day-description strong{color:var(--gold-bright);font-weight:600}
 .day-transit .day-description em{color:rgba(244,201,93,0.75)}
 .day-transit .day-tag{color:var(--gold-bright);border-color:rgba(244,201,93,0.5);background:rgba(244,201,93,0.08)}
@@ -1164,14 +1181,16 @@ section{position:relative}
   padding:1rem;
 }
 .train-connector-icon{
-  width:60px;height:60px;
+  width:90px;height:90px;
   border-radius:50%;
   background:linear-gradient(135deg,var(--gold),var(--gold-dark));
   color:var(--crimson-deep);
-  font-family:var(--display);font-size:1.3rem;font-weight:800;
+  font-family:var(--display);font-size:2.6rem;font-weight:800;
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1rem;
-  box-shadow:0 0 30px rgba(244,201,93,0.5);
+  margin:0 auto 1.2rem;
+  box-shadow:0 0 30px rgba(244,201,93,0.5), inset 0 -3px 8px rgba(0,0,0,0.25);
+  border:2px solid var(--gold-bright);
+  line-height:1;
 }
 .train-connector-label{
   font-family:var(--display);
@@ -2117,12 +2136,8 @@ section{position:relative}
   <div class="hero-ornament br">❦</div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">◆ THE 2026 JOURNEY ◆</div>
-    <h1 class="hero-title">
-      GOLDEN DOMES
-      <span class="amp">&amp;</span>
-      WHITE NIGHTS
-    </h1>
+    <div class="hero-eyebrow"><span class="diamond">◆</span>Lets Go Russia<span class="diamond">◆</span></div>
+    <h1 class="hero-title">GOLDEN DOMES <span class="amp">&amp;</span> WHITE NIGHTS</h1>
     <div class="hero-subtitle">MOSCOW &nbsp;&middot;&nbsp; ST. PETERSBURG</div>
     <div class="hero-meta">
       <span>8 Days</span>
@@ -2137,10 +2152,6 @@ section{position:relative}
     </div>
   </div>
 
-  <div class="scroll-cue">
-    <span>SCROLL</span>
-    <div class="scroll-cue-line"></div>
-  </div>
 </section>
 
 <!-- ============================================================
@@ -2195,7 +2206,7 @@ section{position:relative}
 
     <div class="highlights-grid">
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Moscowcircus.JPG/1280px-Moscowcircus.JPG" alt="Nikulin's Circus" onerror="imgFail(this,'Nikulin&apos;s Circus')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/2010_Great_Moscow_Circus_AU.jpg" alt="The Great Moscow Circus — colourful big top with onion domes" onerror="imgFail(this,'Nikulin&apos;s Circus')">
         <div class="highlight-card-label"><span class="small">Moscow</span>Nikulin's Circus</div>
       </div>
       <div class="highlight-card reveal-el">
@@ -2219,10 +2230,6 @@ section{position:relative}
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Signature Imperial Russian Dinner</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Auferstehungskirche_%28Sankt_Petersburg%29.JPG/1280px-Auferstehungskirche_%28Sankt_Petersburg%29.JPG" alt="Church of the Savior on Spilled Blood" onerror="imgFail(this,'Savior on Spilled Blood')">
-        <div class="highlight-card-label"><span class="small">St. Petersburg</span>Savior on Spilled Blood</div>
-      </div>
-      <div class="highlight-card reveal-el">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/5174-3._St._Petersburg._Greater_Hermitage.jpg/1280px-5174-3._St._Petersburg._Greater_Hermitage.jpg" alt="Palace Square &amp; Hermitage" onerror="imgFail(this,'Palace Square &amp; Hermitage')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Palace Square &amp; Hermitage</div>
       </div>
@@ -2235,7 +2242,7 @@ section{position:relative}
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Catherine Palace &amp; Amber Room</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Auferstehungskirche_%28Sankt_Petersburg%29.JPG/1280px-Auferstehungskirche_%28Sankt_Petersburg%29.JPG" alt="Venice-like canal cruise on the Neva in white nights" onerror="imgFail(this,'Venice-like Canal Cruise · White Nights')">
+        <img src="canal-cruise.jpg" alt="Venice-like canal cruise on the Neva in white nights" onerror="imgFail(this,'Venice-like Canal Cruise · White Nights')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Venice-like Canal Cruise · White Nights</div>
       </div>
       <div class="highlight-card reveal-el">
@@ -2261,8 +2268,8 @@ section{position:relative}
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Moscow Domodedovo Airport (DME)</strong> on <strong>Emirates EK 129</strong> at <strong>06:40</strong> · private meet &amp; greet · transfer to hotel</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Evening stroll down the legendary <strong>Arbat Street</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Spectacular evening at Moscow's famous Nikulin's Circus</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Evening stroll down the legendary <a class="palace-link" href="https://en.wikipedia.org/wiki/Arbat_Street" target="_blank" rel="noopener">Arbat Street</a></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Spectacular evening at Moscow's famous</strong> <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Circus_on_Tsvetnoy_Boulevard" target="_blank" rel="noopener">Nikulin's Circus</a></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Welcome dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -2300,8 +2307,8 @@ section{position:relative}
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Assemble after Breakfast</strong> · meeting with the guide</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory and <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Crown jewels, Fabergé eggs, Romanov regalia.</span><span class="interior-note">Nine chapels of hand-painted frescoes, wall to ceiling.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · Lenin's Mausoleum · Alexander Garden · <strong>GUM store</strong> · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; The beautiful Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Marble, mosaics, chandeliers &mdash; 50 metres underground.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Red_Square" target="_blank" rel="noopener">Red Square</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Lenin%27s_Mausoleum" target="_blank" rel="noopener">Lenin's Mausoleum</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Alexander_Garden" target="_blank" rel="noopener">Alexander Garden</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/GUM_(department_store)" target="_blank" rel="noopener">GUM store</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Zaryadye_Park" target="_blank" rel="noopener">Zaryadye Park</a> with its glass sky-bridge over the Moskva</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Metro" target="_blank" rel="noopener">Metro Tour</a> &mdash; The beautiful Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Marble, mosaics, chandeliers &mdash; 50 metres underground.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Traditional Russian halal dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -2341,8 +2348,8 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;Soviet Monuments &amp; Modern Moscow From Above&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &amp; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; Sparrow Hills · MSU (Lomonosov Moscow State University) · the Seven Sisters (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · Bolshoi Theatre exterior · Victory Park</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>VDNKH Park</strong> &mdash; monumental pavilions &amp; fountains</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; <a class="palace-link" href="https://en.wikipedia.org/wiki/Sparrow_Hills" target="_blank" rel="noopener">Sparrow Hills</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_State_University" target="_blank" rel="noopener">MSU (Lomonosov Moscow State University)</a> · the <a class="palace-link" href="https://en.wikipedia.org/wiki/Seven_Sisters_(Moscow)" target="_blank" rel="noopener">Seven Sisters</a> (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Bolshoi_Theatre" target="_blank" rel="noopener">Bolshoi Theatre</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Victory_Park,_Moscow" target="_blank" rel="noopener">Victory Park</a></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Exhibition_of_Achievements_of_National_Economy" target="_blank" rel="noopener">VDNKH Park</a> &mdash; monumental pavilions &amp; fountains</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Cable car</strong> aerial ride over VDNKH</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Mediterranean halal dinner</em> · overnight in Moscow</span></li>
         </ul>
@@ -2382,11 +2389,11 @@ section{position:relative}
         <h2 class="day-title reveal-el">The 250 km/h Dash to <span style="color:var(--gold-bright)">Imperial Russia</span></h2>
         <div class="day-theme reveal-el">&ldquo;From Red Square to the Neva&rdquo;</div>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · transfer to <strong>Leningradsky Station</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(Economy Plus class seating)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · transfer to <a class="palace-link" href="https://en.wikipedia.org/wiki/Leningradsky_railway_station" target="_blank" rel="noopener">Leningradsky Station</a></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Sapsan" target="_blank" rel="noopener">Sapsan High-Speed Train</a> · 4 hours · up to 250 km/h <em>(Economy Plus class seating)</em></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive St. Petersburg · hotel check-in · rest</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Sunset stroll along <strong>Nevsky Prospekt</strong> &mdash; magical under the long White Nights twilight</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Signature welcome halal dinner</strong> · Imperial Russian cuisine at a heritage venue <em>(Cafe Tamozhnya / Troika)</em> · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Sunset stroll along <a class="palace-link" href="https://en.wikipedia.org/wiki/Nevsky_Avenue" target="_blank" rel="noopener">Nevsky Prospekt</a> &mdash; magical under the long White Nights twilight</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Signature welcome halal dinner · Imperial Russian cuisine at a heritage venue <em>(Cafe Tamozhnya / Troika)</em> · overnight in St. Petersburg</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Sapsan Bullet Train</span>
@@ -2424,8 +2431,8 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;Where Every Facade Tells a Romanov Story&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Spit of Vasilyevsky Island with Rostral Columns · Summer Garden<span class="interior-note">Savior on Spilled Blood: 7,500 sq m of mosaics, lit by oil lamps.</span><span class="interior-note">St. Isaac's: malachite columns and a 100-metre gilded dome.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Neva River &amp; Canal cruise</strong> &mdash; the city as Peter the Great meant you to see it</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; <a class="palace-link" href="https://en.wikipedia.org/wiki/Nevsky_Avenue" target="_blank" rel="noopener">Nevsky Prospekt</a> · the <a class="palace-link" href="https://en.wikipedia.org/wiki/Admiralty_building,_Saint_Petersburg" target="_blank" rel="noopener">Admiralty</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the <a class="palace-link" href="https://en.wikipedia.org/wiki/Bronze_Horseman" target="_blank" rel="noopener">Bronze Horseman</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Vasilyevsky_Island" target="_blank" rel="noopener">Spit of Vasilyevsky Island with Rostral Columns</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Summer_Garden" target="_blank" rel="noopener">Summer Garden</a><span class="interior-note">Savior on Spilled Blood: 7,500 sq m of mosaics, lit by oil lamps.</span><span class="interior-note">St. Isaac's: malachite columns and a 100-metre gilded dome.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong><a class="palace-link" href="https://en.wikipedia.org/wiki/Neva_River" target="_blank" rel="noopener">Neva River</a> &amp; Canal cruise</strong> &mdash; the city as Peter the Great meant you to see it</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Arabian / Middle Eastern halal dinner</em> · overnight in St. Petersburg</span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -2466,9 +2473,8 @@ section{position:relative}
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil ride one-way $30 p.p.)</em><span class="interior-note">64 gravity-fed fountains, 200+ gold statues &mdash; no pumps.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at Tsarskoye Selo<span class="interior-note">Mirror halls, parquet ballrooms, and the Amber Room &mdash; six tons of carved amber.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at <a class="palace-link" href="https://en.wikipedia.org/wiki/Tsarskoye_Selo" target="_blank" rel="noopener">Tsarskoye Selo</a><span class="interior-note">Mirror halls, parquet ballrooms, and the Amber Room &mdash; six tons of carved amber.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Iranian / Persian halal dinner</em> · overnight in St. Petersburg</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Optional in evening:</strong> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Peterhof</span>
@@ -2506,7 +2512,7 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;Coffee, Canals, and a Long Last Look&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast in the hotel · <strong>leisure morning</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling &mdash; Nevsky Prospekt, Eliseev, souvenir markets</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling &mdash; <a class="palace-link" href="https://en.wikipedia.org/wiki/Nevsky_Avenue" target="_blank" rel="noopener">Nevsky Prospekt</a>, <a class="palace-link" href="https://en.wikipedia.org/wiki/Yeliseyev_Emporium" target="_blank" rel="noopener">Eliseev</a>, souvenir markets</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Farewell dinner</strong> · overnight in St. Petersburg</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p.)</em></span></li>
         </ul>
@@ -2545,7 +2551,7 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;With Stories You'll Tell for Decades&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Final breakfast at the hotel · farewells &amp; photos</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <strong>St. Petersburg Pulkovo Airport (LED)</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Group airport transfer · check-in at <a class="palace-link" href="https://en.wikipedia.org/wiki/Pulkovo_Airport" target="_blank" rel="noopener">St. Petersburg Pulkovo Airport (LED)</a></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Emirates EK 176 to Dubai</strong> · departs <strong>23:05</strong>, arrives DXB <strong>06:10</strong> on 06 July &mdash; the journey home with an overflowing heart</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Connecting <strong>Emirates EK 600 Dubai &rarr; Karachi</strong> · departs <strong>07:40</strong>, arrives <strong>10:45</strong> on 06 July</span></li>
         </ul>
@@ -2789,7 +2795,7 @@ section{position:relative}
       </div>
 
       <div class="train-connector reveal-el">
-        <div class="train-connector-icon">&rarr;</div>
+        <div class="train-connector-icon" aria-label="Sapsan high-speed train">&#128646;</div>
         <div class="train-connector-label">Sapsan</div>
         <div class="train-connector-route">Moscow &rarr; St. Petersburg<br><em>250 km/h &middot; 4 hours</em></div>
       </div>
