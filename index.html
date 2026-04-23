@@ -111,11 +111,11 @@ body::before{
 .accent{font-family:var(--accent);font-style:italic}
 .eyebrow{
   font-family:var(--sans);
-  font-size:.72rem;
-  font-weight:600;
-  letter-spacing:.32em;
+  font-size:.85rem;
+  font-weight:800;
+  letter-spacing:.28em;
   text-transform:uppercase;
-  color:var(--gold-dark);
+  color:var(--crimson-deep);
 }
 
 /* ============================================================
@@ -422,8 +422,8 @@ section{position:relative}
 .intro h2 em{
   font-family:var(--serif);
   font-style:italic;
-  font-weight:400;
-  color:var(--gold-dark);
+  font-weight:700;
+  color:var(--crimson);
   display:block;font-size:.8em;
 }
 .intro .route{
@@ -478,8 +478,8 @@ section{position:relative}
   font-weight:700;
 }
 .summary-heading em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  color:var(--gold-dark);
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  color:var(--crimson);
   display:block;font-size:.85em;margin-top:.2em;
 }
 .summary-list{list-style:none;display:flex;flex-direction:column;gap:1.2rem}
@@ -507,10 +507,11 @@ section{position:relative}
 }
 .summary-closing{
   margin-top:2.5rem;
-  font-family:var(--serif);font-style:italic;
-  color:var(--ink-soft);font-size:1.1rem;
+  font-family:var(--serif);
+  color:var(--ink);font-size:1.15rem;
+  font-weight:600;
   padding-left:2rem;
-  border-left:2px solid var(--gold);
+  border-left:3px solid var(--crimson);
 }
 
 .summary-visual{
@@ -551,12 +552,13 @@ section{position:relative}
   margin-bottom:.7rem;
 }
 .highlights-head h2 em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  color:var(--gold-dark);
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  color:var(--crimson);
 }
 .highlights-head p{
-  font-family:var(--serif);font-style:italic;
-  color:var(--ink-soft);font-size:1.15rem;
+  font-family:var(--serif);
+  color:var(--ink);font-size:1.2rem;
+  font-weight:600;
   max-width:620px;margin:1rem auto 0;
 }
 .highlights-grid{
@@ -599,14 +601,13 @@ section{position:relative}
 }
 .highlight-card-label .small{
   display:block;
-  font-family:var(--serif);
-  font-style:italic;
-  font-weight:400;
+  font-family:var(--display);
+  font-weight:700;
   color:var(--gold-bright);
-  font-size:.7rem;
-  letter-spacing:.15em;
+  font-size:.78rem;
+  letter-spacing:.18em;
   text-transform:uppercase;
-  margin-bottom:.25rem;
+  margin-bottom:.3rem;
 }
 .highlights-more{
   text-align:center;margin-top:2.5rem;
@@ -677,16 +678,16 @@ section{position:relative}
 
 .day-eyebrow{
   font-family:var(--display);
-  color:var(--gold-dark);
-  font-size:.8rem;
-  letter-spacing:.35em;
+  color:var(--crimson-deep);
+  font-size:1.15rem;
+  letter-spacing:.18em;
   text-transform:uppercase;
-  margin-bottom:.8rem;
-  font-weight:600;
+  margin-bottom:1rem;
+  font-weight:800;
   display:flex;align-items:center;gap:.7rem;
 }
 .day-eyebrow::before{
-  content:"";width:30px;height:1px;background:var(--gold-dark);
+  content:"";width:30px;height:3px;background:var(--crimson);
 }
 
 .day-title{
@@ -701,10 +702,10 @@ section{position:relative}
 .day-theme{
   font-family:var(--serif);
   font-style:italic;
-  font-size:clamp(1.1rem,2vw,1.5rem);
-  color:var(--gold-dark);
+  font-size:clamp(1.2rem,2.2vw,1.6rem);
+  color:var(--crimson-deep);
   margin-bottom:1.5rem;
-  font-weight:500;
+  font-weight:700;
 }
 .day-description{
   font-family:var(--serif);
@@ -749,8 +750,8 @@ section{position:relative}
   font-size:.95rem;
   line-height:1.5;
 }
-.day-schedule-text strong{color:var(--crimson-deep);font-weight:600}
-.day-schedule-text em{font-style:italic;color:var(--gold-dark);font-family:var(--serif)}
+.day-schedule-text strong{color:var(--crimson-deep);font-weight:700}
+.day-schedule-text em{font-style:italic;color:var(--crimson-deep);font-family:var(--serif);font-weight:700}
 
 /* Interior description note (for palaces / cathedrals visited inside) */
 .interior-note{
@@ -1080,12 +1081,13 @@ section{position:relative}
   color:var(--crimson-deep);font-weight:700;
 }
 .hotels-head h2 em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  color:var(--gold-dark);
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  color:var(--crimson);
 }
 .hotels-head p{
-  font-family:var(--serif);font-style:italic;
-  color:var(--ink-soft);font-size:1.1rem;
+  font-family:var(--serif);
+  color:var(--ink);font-size:1.15rem;
+  font-weight:600;
   margin-top:.7rem;
 }
 
@@ -1132,10 +1134,11 @@ section{position:relative}
   margin-bottom:.3rem;
 }
 .hotel-city{
-  font-family:var(--serif);font-style:italic;
-  color:var(--gold-dark);
-  font-size:.9rem;
-  letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--display);
+  color:var(--crimson-deep);
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;
   margin-bottom:1rem;
 }
 .hotel-nights{
@@ -1148,10 +1151,11 @@ section{position:relative}
   border-radius:999px;font-weight:600;
 }
 .hotel-note{
-  font-family:var(--sans);font-size:.75rem;
-  color:var(--ink-soft);opacity:.7;
+  font-family:var(--sans);font-size:.85rem;
+  color:var(--ink);
+  font-weight:600;
   margin-top:.8rem;
-  letter-spacing:.1em;
+  letter-spacing:.05em;
 }
 
 .train-connector{
@@ -1178,9 +1182,11 @@ section{position:relative}
   margin-bottom:.3rem;
 }
 .train-connector-route{
-  font-family:var(--serif);font-style:italic;
-  color:var(--ink-soft);font-size:.9rem;
+  font-family:var(--serif);
+  color:var(--ink);font-size:1rem;
+  font-weight:600;
 }
+.train-connector-route em{color:var(--crimson-deep);font-weight:700;font-style:normal}
 
 /* ============================================================
    CTA / FOOTER
