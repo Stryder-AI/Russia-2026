@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>White Nights &amp; Golden Domes — Russia 2026 | Exclusive Travel Buddies</title>
+<title>Journey to Golden Domes &amp; White Nights — Russia 2026 | Exclusive Travel Buddies</title>
 <meta name="description" content="An 8-day journey through Moscow and St. Petersburg. Red Square to the Hermitage. Sapsan bullet trains, the Amber Room, and the White Nights of June.">
 
 <!-- Open Graph / WhatsApp / iMessage / Facebook link preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Exclusive Travel Buddies — Bukhari Group">
-<meta property="og:title" content="White Nights &amp; Golden Domes — Russia 2026">
+<meta property="og:title" content="Journey to Golden Domes &amp; White Nights — Russia 2026">
 <meta property="og:description" content="An 8-day private journey through Moscow &amp; St. Petersburg · 28 June – 05 July 2026. Red Square, the Kremlin, the Sapsan bullet train, Peterhof &amp; the Amber Room.">
 <meta property="og:url" content="https://russia-2026.vercel.app/">
 <meta property="og:image" content="https://russia-2026.vercel.app/preview.jpg">
@@ -22,7 +22,7 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="White Nights &amp; Golden Domes — Russia 2026">
+<meta name="twitter:title" content="Journey to Golden Domes &amp; White Nights — Russia 2026">
 <meta name="twitter:description" content="An 8-day private journey through Moscow &amp; St. Petersburg · 28 June – 05 July 2026.">
 <meta name="twitter:image" content="https://russia-2026.vercel.app/preview.jpg">
 
@@ -1287,6 +1287,386 @@ section{position:relative}
   .inclusion-desc{font-size:.95rem}
 }
 
+/* "What's Not Included" mini-block under the inclusions grid */
+.not-included{
+  max-width:1100px;
+  margin:3rem auto 0;
+  padding:1.5rem 1.8rem;
+  background:rgba(26,10,10,0.05);
+  border:2px dashed var(--crimson);
+  border-radius:4px;
+  text-align:center;
+}
+.not-included .eyebrow{
+  display:block;
+  margin-bottom:.8rem;
+  color:var(--crimson-deep);
+  font-size:.95rem;
+}
+.not-included ul{
+  list-style:none;
+  display:inline-flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.6rem 2rem;
+}
+.not-included li{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.05rem;
+  font-weight:600;
+  padding-left:1.4rem;
+  position:relative;
+}
+.not-included li::before{
+  content:"\2715";
+  position:absolute;left:0;top:0;
+  color:var(--crimson);
+  font-weight:800;
+}
+
+/* ============================================================
+   VISA REQUIREMENTS
+   ============================================================ */
+.visa{
+  padding:7rem 0;
+  background:linear-gradient(180deg, var(--cream) 0%, var(--parchment-warm) 100%);
+  position:relative;
+}
+.visa-head{text-align:center;margin-bottom:3.5rem}
+.visa-head h2{
+  font-family:var(--display);
+  font-size:clamp(2.5rem,5vw,4rem);
+  color:var(--crimson-deep);
+  font-weight:800;
+  line-height:1;
+  margin:.4rem 0 .8rem;
+}
+.visa-head p{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.15rem;
+  font-weight:600;
+  max-width:680px;margin:0 auto;
+}
+.visa-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.visa-block{
+  background:var(--cream);
+  border:2px solid var(--crimson);
+  border-radius:4px;
+  padding:2rem 2rem 1.8rem;
+  box-shadow:0 14px 30px -12px rgba(139,0,0,0.2);
+}
+.visa-block h3{
+  font-family:var(--display);
+  color:var(--crimson-deep);
+  font-size:1.4rem;
+  font-weight:800;
+  margin-bottom:1.2rem;
+  padding-bottom:.7rem;
+  border-bottom:2px solid var(--gold);
+  letter-spacing:.02em;
+}
+.visa-block ol, .visa-block ul{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:.8rem;
+  counter-reset:visa;
+}
+.visa-block li{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.02rem;
+  font-weight:500;
+  line-height:1.5;
+  padding-left:2rem;
+  position:relative;
+}
+.visa-block ol li{counter-increment:visa}
+.visa-block ol li::before{
+  content:counter(visa);
+  position:absolute;left:0;top:.05rem;
+  width:1.4rem;height:1.4rem;
+  background:var(--crimson);
+  color:var(--gold-bright);
+  font-family:var(--display);
+  font-size:.8rem;font-weight:800;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.visa-block ul li::before{
+  content:"\2713";
+  position:absolute;left:.2rem;top:0;
+  color:var(--crimson);font-weight:800;font-size:1.1rem;
+}
+.visa-block li strong{color:var(--crimson-deep);font-weight:700}
+@media (max-width:768px){
+  .visa-grid{grid-template-columns:1fr;gap:1.2rem}
+  .visa-block{padding:1.5rem}
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing{
+  padding:7rem 0;
+  background:linear-gradient(180deg, var(--crimson-deep) 0%, var(--ink) 100%);
+  color:var(--parchment);
+  position:relative;
+  overflow:hidden;
+}
+.pricing::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(244,201,93,0.18) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(244,201,93,0.12) 0, transparent 40%);
+  pointer-events:none;
+}
+.pricing-head{text-align:center;margin-bottom:3.5rem;position:relative;z-index:2}
+.pricing-head .eyebrow{color:var(--gold-bright)}
+.pricing-head h2{
+  font-family:var(--display);
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  color:var(--parchment);
+  font-weight:800;
+  line-height:1;
+  margin:.4rem 0 .8rem;
+}
+.pricing-head p{
+  font-family:var(--serif);
+  color:var(--gold-bright);
+  font-size:1.2rem;
+  font-weight:600;
+  max-width:680px;margin:0 auto;
+}
+.price-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  max-width:900px;
+  margin:0 auto 3rem;
+  position:relative;z-index:2;
+}
+.price-card{
+  background:rgba(245,236,217,0.06);
+  border:2px solid var(--gold);
+  border-radius:6px;
+  padding:2.2rem 1.8rem;
+  text-align:center;
+  backdrop-filter:blur(6px);
+  box-shadow:0 14px 30px -12px rgba(0,0,0,0.5);
+}
+.price-card.featured{
+  background:rgba(244,201,93,0.12);
+  border-color:var(--gold-bright);
+  border-width:3px;
+  transform:scale(1.04);
+}
+.price-card-label{
+  font-family:var(--display);
+  font-size:.8rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold-bright);
+  font-weight:700;
+  margin-bottom:.8rem;
+}
+.price-card-amount{
+  font-family:var(--display);
+  font-size:3.2rem;
+  font-weight:800;
+  color:var(--parchment);
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.price-card-amount .currency{
+  font-size:1.8rem;
+  color:var(--gold-bright);
+  vertical-align:top;
+  margin-right:.2rem;
+}
+.price-card-note{
+  font-family:var(--serif);
+  font-style:italic;
+  color:rgba(245,236,217,0.85);
+  font-size:1rem;
+}
+.price-card-min{
+  margin-top:1rem;
+  font-family:var(--sans);
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold-bright);
+  font-weight:600;
+}
+
+.payment-schedule{
+  max-width:900px;
+  margin:0 auto;
+  padding:2rem 2.2rem;
+  background:rgba(0,0,0,0.4);
+  border:1px solid var(--gold);
+  border-radius:6px;
+  position:relative;z-index:2;
+}
+.payment-schedule h3{
+  font-family:var(--display);
+  color:var(--gold-bright);
+  font-size:1.5rem;
+  font-weight:800;
+  text-align:center;
+  margin-bottom:1.5rem;
+  letter-spacing:.05em;
+}
+.payment-schedule ul{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:.8rem;
+}
+.payment-schedule li{
+  font-family:var(--serif);
+  color:var(--parchment);
+  font-size:1.05rem;
+  font-weight:500;
+  line-height:1.5;
+  padding:.7rem 1rem;
+  border-left:3px solid var(--gold);
+  background:rgba(244,201,93,0.06);
+  display:flex;justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+.payment-schedule li strong{
+  color:var(--gold-bright);
+  font-weight:700;
+  font-family:var(--display);
+}
+.payment-schedule .deadline{
+  background:rgba(244,201,93,0.18);
+  border-left-color:var(--gold-bright);
+  border-left-width:5px;
+}
+.payment-schedule .note{
+  margin-top:1rem;
+  font-style:italic;
+  color:rgba(244,201,93,0.85);
+  text-align:center;
+  border:none;background:none;display:block;
+  padding:0;
+}
+@media (max-width:768px){
+  .price-cards{grid-template-columns:1fr;gap:1.2rem}
+  .price-card.featured{transform:none}
+  .payment-schedule{padding:1.4rem 1.2rem}
+  .payment-schedule li{font-size:.95rem}
+}
+
+/* ============================================================
+   BANK / FLIGHT BLOCKS
+   ============================================================ */
+.bank-flight{
+  padding:6rem 0;
+  background:linear-gradient(180deg, var(--parchment-warm) 0%, #f3e8cf 100%);
+}
+.bank-flight-grid{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+.bf-card{
+  background:var(--cream);
+  border:2px solid var(--crimson);
+  border-top:6px solid var(--crimson);
+  border-radius:4px;
+  padding:2rem 2rem 1.8rem;
+  box-shadow:0 14px 30px -12px rgba(139,0,0,0.2);
+}
+.bf-card h3{
+  font-family:var(--display);
+  color:var(--crimson-deep);
+  font-size:1.5rem;
+  font-weight:800;
+  margin-bottom:1.2rem;
+  letter-spacing:.02em;
+}
+.bf-card .field{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  padding:.7rem 0;
+  border-bottom:1px dashed rgba(139,0,0,0.3);
+  font-family:var(--serif);
+  font-size:1.05rem;
+}
+.bf-card .field:last-child{border-bottom:none}
+.bf-card .field-label{
+  font-family:var(--display);
+  color:var(--crimson);
+  font-weight:700;
+  font-size:.9rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  flex-shrink:0;
+}
+.bf-card .field-value{
+  color:var(--ink);
+  font-weight:700;
+  text-align:right;
+  word-break:break-all;
+}
+.bf-card .deposit-callout{
+  margin-top:1.4rem;
+  padding:1rem 1.2rem;
+  background:rgba(139,0,0,0.06);
+  border-left:4px solid var(--crimson);
+  border-radius:3px;
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.55;
+}
+.bf-card .deposit-callout strong{color:var(--crimson-deep)}
+
+.bf-card .flight-note{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-size:1.02rem;
+  font-weight:500;
+  line-height:1.6;
+  padding:.6rem 0;
+}
+.bf-card .flight-note strong{color:var(--crimson-deep);font-weight:700}
+.bf-card .flight-warning{
+  margin-top:1.2rem;
+  padding:.9rem 1.1rem;
+  background:rgba(212,168,75,0.18);
+  border-left:4px solid var(--gold-dark);
+  border-radius:3px;
+  font-family:var(--serif);
+  color:var(--ink);
+  font-weight:600;
+  font-size:.98rem;
+  line-height:1.55;
+}
+@media (max-width:768px){
+  .bank-flight-grid{grid-template-columns:1fr;gap:1.2rem}
+  .bf-card{padding:1.5rem}
+  .bf-card .field{flex-direction:column;align-items:flex-start;gap:.2rem}
+  .bf-card .field-value{text-align:left}
+}
+
 /* ============================================================
    CTA / FOOTER
    ============================================================ */
@@ -1448,7 +1828,7 @@ section{position:relative}
 <!-- Sticky day nav -->
 <nav class="day-nav" id="dayNav">
   <div class="day-nav-inner">
-    <div class="day-nav-brand">WHITE NIGHTS &amp; GOLDEN DOMES</div>
+    <div class="day-nav-brand">GOLDEN DOMES &amp; WHITE NIGHTS</div>
     <div class="day-nav-dots" id="dayNavDots">
       <a href="#intro" class="day-nav-dot">Overview</a>
       <a href="#day-1" class="day-nav-dot">Day 1</a>
@@ -1462,6 +1842,9 @@ section{position:relative}
       <a href="#map" class="day-nav-dot">Route</a>
       <a href="#hotels" class="day-nav-dot">Hotels</a>
       <a href="#inclusions" class="day-nav-dot">Inclusions</a>
+      <a href="#visa" class="day-nav-dot">Visa</a>
+      <a href="#pricing" class="day-nav-dot">Price</a>
+      <a href="#payment" class="day-nav-dot">Payment</a>
     </div>
   </div>
 </nav>
@@ -1489,9 +1872,9 @@ section{position:relative}
   <div class="hero-content">
     <div class="hero-eyebrow">◆ THE 2026 JOURNEY ◆</div>
     <h1 class="hero-title">
-      WHITE NIGHTS
-      <span class="amp">&amp;</span>
       GOLDEN DOMES
+      <span class="amp">&amp;</span>
+      WHITE NIGHTS
     </h1>
     <div class="hero-subtitle">MOSCOW &nbsp;&middot;&nbsp; ST. PETERSBURG</div>
     <div class="hero-meta">
@@ -1503,7 +1886,7 @@ section{position:relative}
     </div>
     <div class="hero-footer">
       <div class="for">FOR EXCLUSIVE TRAVEL BUDDIES</div>
-      <div class="family">A group that symbolises the family</div>
+      <div class="family">The Group that Symbolizes a Family</div>
     </div>
   </div>
 
@@ -1521,7 +1904,7 @@ section{position:relative}
   <div class="intro-ornament right">❁</div>
 
   <div class="wrap-narrow intro-inner">
-    <h2 class="reveal-el">The Journey of <em>White Nights &amp; Golden Domes</em></h2>
+    <h2 class="reveal-el">The Journey to <em>Golden Domes &amp; White Nights</em></h2>
     <div class="route reveal-el">MOSCOW <span>◆</span> ST. PETERSBURG</div>
   </div>
 </section>
@@ -1537,12 +1920,12 @@ section{position:relative}
         <h2 class="summary-heading reveal-el">Trip <em>Summary</em></h2>
         <ul class="summary-list">
           <li class="summary-item"><span class="bullet"></span><span><strong>8</strong> Unforgettable Days of Discovery</span></li>
-          <li class="summary-item"><span class="bullet"></span><span><strong>4★</strong> Imperial-Grade Hotels in the City Centres</span></li>
+          <li class="summary-item"><span class="bullet"></span><span><strong>4★</strong> Imperial-Grade Hotels in the City Centre</span></li>
           <li class="summary-item"><span class="bullet"></span><span><strong>1</strong> Sapsan Bullet Train at 250 km/h</span></li>
           <li class="summary-item"><span class="bullet"></span><span><strong>7</strong> Halal Dinners across <em>5 Cuisines</em></span></li>
           <li class="summary-item"><span class="bullet"></span><span><strong>25+</strong> Iconic Experiences &amp; Landmarks</span></li>
           <li class="summary-item"><span class="bullet"></span><span><strong>2</strong> Legendary Capital Cities</span></li>
-          <li class="summary-item"><span class="bullet"></span><span><strong>1</strong> Story Your Grandchildren Will Ask About</span></li>
+          <li class="summary-item"><span class="bullet"></span><span><strong>1</strong> Story Your Grandchildren and Friends Will Ask About</span></li>
         </ul>
       </div>
       <div class="summary-visual reveal-el slide-right">
@@ -1565,40 +1948,48 @@ section{position:relative}
 
     <div class="highlights-grid">
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Saint_Basil%27s_Cathedral_in_Moscow.jpg/1280px-Saint_Basil%27s_Cathedral_in_Moscow.jpg" alt="St. Basil's Cathedral" onerror="imgFail(this,'St. Basil&apos;s Cathedral')">
-        <div class="highlight-card-label"><span class="small">Moscow</span>St. Basil's Cathedral</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Moscowcircus.JPG/1280px-Moscowcircus.JPG" alt="Nikulin's Circus" onerror="imgFail(this,'Nikulin&apos;s Circus')">
+        <div class="highlight-card-label"><span class="small">Moscow</span>Nikulin's Circus</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/1280px-Moscow_Kremlin_%288281675670%29.jpg" alt="The Moscow Kremlin" onerror="imgFail(this,'The Kremlin')">
-        <div class="highlight-card-label"><span class="small">Moscow</span>The Kremlin</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/1280px-Moscow_Kremlin_%288281675670%29.jpg" alt="The Kremlin and St. Basil's Cathedral" onerror="imgFail(this,'The Kremlin &amp; St. Basil&apos;s')">
+        <div class="highlight-card-label"><span class="small">Moscow</span>The Kremlin &amp; St. Basil's</div>
       </div>
       <div class="highlight-card reveal-el">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/GUM%2C_Moscow%2C_Russia.jpg/1280px-GUM%2C_Moscow%2C_Russia.jpg" alt="Red Square" onerror="imgFail(this,'Red Square')">
         <div class="highlight-card-label"><span class="small">Moscow</span>Red Square &amp; GUM</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/MosMetro_KomsomolskayaKL_img2_asv2018-01.jpg/1280px-MosMetro_KomsomolskayaKL_img2_asv2018-01.jpg" alt="Moscow Metro" onerror="imgFail(this,'Moscow Metro')">
-        <div class="highlight-card-label"><span class="small">Moscow</span>Soviet Metro Palaces</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/MosMetro_KomsomolskayaKL_img2_asv2018-01.jpg/1280px-MosMetro_KomsomolskayaKL_img2_asv2018-01.jpg" alt="Soviet-era Metro Stations" onerror="imgFail(this,'Soviet Metro Stations')">
+        <div class="highlight-card-label"><span class="small">Moscow</span>Soviet Era Metro Stations</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Moscow_State_University.jpg/1280px-Moscow_State_University.jpg" alt="Moscow skyline Seven Sisters" onerror="imgFail(this,'The Seven Sisters')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Moscow_State_University.jpg/1280px-Moscow_State_University.jpg" alt="Stalin's Seven Sisters" onerror="imgFail(this,'The Seven Sisters')">
         <div class="highlight-card-label"><span class="small">Moscow</span>Stalin's Seven Sisters</div>
+      </div>
+      <div class="highlight-card reveal-el">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Moscow_05-2012_TretyakovGallery.jpg/1280px-Moscow_05-2012_TretyakovGallery.jpg" alt="Signature Imperial Russian Dinner" onerror="imgFail(this,'Signature Imperial Russian Dinner')">
+        <div class="highlight-card-label"><span class="small">St. Petersburg</span>Signature Imperial Russian Dinner</div>
       </div>
       <div class="highlight-card reveal-el">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Auferstehungskirche_%28Sankt_Petersburg%29.JPG/1280px-Auferstehungskirche_%28Sankt_Petersburg%29.JPG" alt="Church of the Savior on Spilled Blood" onerror="imgFail(this,'Savior on Spilled Blood')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Savior on Spilled Blood</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/5174-3._St._Petersburg._Greater_Hermitage.jpg/1280px-5174-3._St._Petersburg._Greater_Hermitage.jpg" alt="The Hermitage" onerror="imgFail(this,'The Hermitage')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/5174-3._St._Petersburg._Greater_Hermitage.jpg/1280px-5174-3._St._Petersburg._Greater_Hermitage.jpg" alt="Palace Square &amp; Hermitage" onerror="imgFail(this,'Palace Square &amp; Hermitage')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Palace Square &amp; Hermitage</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg/1280px-Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg" alt="Peterhof" onerror="imgFail(this,'Peterhof Fountains')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg/1280px-Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg" alt="Peterhof Grand Cascade" onerror="imgFail(this,'Peterhof Grand Cascade')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Peterhof Grand Cascade</div>
       </div>
       <div class="highlight-card reveal-el">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B5_%D0%A1%D0%B5%D0%BB%D0%BE._%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5%D1%86_1.jpg/1280px-%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B5_%D0%A1%D0%B5%D0%BB%D0%BE._%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5%D1%86_1.jpg" alt="Catherine Palace" onerror="imgFail(this,'Catherine Palace')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B5_%D0%A1%D0%B5%D0%BB%D0%BE._%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5%D1%86_1.jpg/1280px-%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B5_%D0%A1%D0%B5%D0%BB%D0%BE._%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5%D1%86_1.jpg" alt="Catherine Palace &amp; Amber Room" onerror="imgFail(this,'Catherine Palace &amp; Amber Room')">
         <div class="highlight-card-label"><span class="small">St. Petersburg</span>Catherine Palace &amp; Amber Room</div>
+      </div>
+      <div class="highlight-card reveal-el">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Auferstehungskirche_%28Sankt_Petersburg%29.JPG/1280px-Auferstehungskirche_%28Sankt_Petersburg%29.JPG" alt="Venice-like canal cruise on the Neva in white nights" onerror="imgFail(this,'Venice-like Canal Cruise · White Nights')">
+        <div class="highlight-card-label"><span class="small">St. Petersburg</span>Venice-like Canal Cruise · White Nights</div>
       </div>
       <div class="highlight-card reveal-el">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/%D0%AD%D0%92%D0%A12-02.JPG/1280px-%D0%AD%D0%92%D0%A12-02.JPG" alt="Sapsan high-speed train" onerror="imgFail(this,'The Sapsan Bullet Train')">
@@ -1624,8 +2015,8 @@ section{position:relative}
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive <strong>Sheremetyevo Airport (SVO)</strong> · private meet &amp; greet · transfer to hotel</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Check in &middot; rest and freshen up</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Evening stroll down the legendary <strong>Arbat Street</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Nikulin's Circus</strong> &mdash; premium seating in the green zone</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Welcome halal Indian dinner</em> · overnight in Moscow</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Spectacular evening at Moscow's famous Nikulin's Circus</strong></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Welcome dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Arbat Street</span>
@@ -1660,10 +2051,10 @@ section{position:relative}
         <h2 class="day-title reveal-el">Behind the <span style="color:var(--crimson)">Kremlin Walls</span></h2>
         <div class="day-theme reveal-el">&ldquo;Where Red Stars and Gold Domes Share the Sky&rdquo;</div>
         <ul class="day-schedule">
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &middot; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Crown jewels, Fabergé eggs, Romanov regalia.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> (interior) · Lenin's Mausoleum · Alexander Garden · GUM · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva<span class="interior-note">Nine chapels of hand-painted frescoes, wall to ceiling.</span></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Marble, mosaics, chandeliers &mdash; 50 metres underground.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Assemble after Breakfast</strong> · meeting with the guide</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Inside the <a class="palace-link" href="https://en.wikipedia.org/wiki/Moscow_Kremlin" target="_blank" rel="noopener">Kremlin</a> territory and <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral" target="_blank" rel="noopener">St. Basil's Cathedral</a> <em>(optional Armoury Chamber $25 p.p.)</em><span class="interior-note">Crown jewels, Fabergé eggs, Romanov regalia.</span><span class="interior-note">Nine chapels of hand-painted frescoes, wall to ceiling.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Red Square</strong> · Lenin's Mausoleum · Alexander Garden · <strong>GUM store</strong> · <strong>Zaryadye Park</strong> with its glass sky-bridge over the Moskva</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Metro Tour</strong> &mdash; The beautiful Komsomolskaya, Mayakovskaya, Novoslobodskaya &amp; Kievskaya<span class="interior-note">Marble, mosaics, chandeliers &mdash; 50 metres underground.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Traditional Russian halal dinner</em> · overnight in Moscow</span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -1703,7 +2094,7 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;Soviet Monuments &amp; Modern Moscow From Above&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast &amp; meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; Sparrow Hills · MSU · the Seven Sisters (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · Bolshoi Theatre exterior · Victory Park</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Panoramic city tour</strong> &mdash; Sparrow Hills · MSU (Lomonosov Moscow State University) · the Seven Sisters (drive-by) · <a class="palace-link" href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Cathedral of Christ the Saviour</a> · Bolshoi Theatre exterior · Victory Park</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>VDNKH Park</strong> &mdash; monumental pavilions &amp; fountains</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Cable car</strong> aerial ride over VDNKH</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Mediterranean halal dinner</em> · overnight in Moscow</span></li>
@@ -1745,16 +2136,16 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;From Red Square to the Neva&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · transfer to <strong>Leningradsky Station</strong></span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(comfort class seating)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Sapsan High-Speed Train</strong> · 4 hours · up to 250 km/h <em>(Economy Plus class seating)</em></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Arrive St. Petersburg · hotel check-in · rest</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Sunset stroll along <strong>Nevsky Prospekt</strong> &mdash; magical under the long White Nights twilight</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Signature welcome halal dinner</strong> · Imperial Russian cuisine at a heritage venue <em>(Tamozhnya / Troika)</em> · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Signature welcome halal dinner</strong> · Imperial Russian cuisine at a heritage venue <em>(Cafe Tamozhnya / Troika)</em> · overnight in St. Petersburg</span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Sapsan Bullet Train</span>
           <span class="day-tag">Nevsky Prospekt</span>
           <span class="day-tag">White Nights</span>
-          <span class="day-tag">Signature Dinner</span>
+          <span class="day-tag">Imperial Russian Signature Dinner</span>
         </div>
       </div>
 
@@ -1786,7 +2177,7 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;Where Every Facade Tells a Romanov Story&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Rostral Columns · Summer Garden<span class="interior-note">Savior on Spilled Blood: 7,500 sq m of mosaics, lit by oil lamps.</span><span class="interior-note">St. Isaac's: malachite columns and a 100-metre gilded dome.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>City tour</strong> &mdash; Nevsky Prospekt · the Admiralty · <a class="palace-link" href="https://en.wikipedia.org/wiki/Palace_Square" target="_blank" rel="noopener">Palace Square &amp; Alexander Column</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Church_of_the_Savior_on_Spilled_Blood" target="_blank" rel="noopener">Church of the Savior on Spilled Blood</a> · <a class="palace-link" href="https://en.wikipedia.org/wiki/Saint_Isaac%27s_Cathedral" target="_blank" rel="noopener">St. Isaac's Cathedral</a> · the Bronze Horseman · Spit of Vasilyevsky Island with Rostral Columns · Summer Garden<span class="interior-note">Savior on Spilled Blood: 7,500 sq m of mosaics, lit by oil lamps.</span><span class="interior-note">St. Isaac's: malachite columns and a 100-metre gilded dome.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Neva River &amp; Canal cruise</strong> &mdash; the city as Peter the Great meant you to see it</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Arabian / Middle Eastern halal dinner</em> · overnight in St. Petersburg</span></li>
         </ul>
@@ -1827,17 +2218,16 @@ section{position:relative}
         <div class="day-theme reveal-el">&ldquo;The Greatest Palaces in Europe &mdash; Twice Over&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast · meeting with the guide</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil one-way $30 p.p.)</em><span class="interior-note">64 gravity-fed fountains, 200+ gold statues &mdash; no pumps.</span></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Peterhof_Palace" target="_blank" rel="noopener">Peterhof Park</a> &mdash; the Grand Cascade &amp; Upper/Lower gardens <em>(optional hydrofoil ride one-way $30 p.p.)</em><span class="interior-note">64 gravity-fed fountains, 200+ gold statues &mdash; no pumps.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><a class="palace-link" href="https://en.wikipedia.org/wiki/Catherine_Palace" target="_blank" rel="noopener">Catherine Palace</a> &amp; the <a class="palace-link" href="https://en.wikipedia.org/wiki/Amber_Room" target="_blank" rel="noopener">Amber Room</a> at Tsarskoye Selo<span class="interior-note">Mirror halls, parquet ballrooms, and the Amber Room &mdash; six tons of carved amber.</span></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Iranian / Persian halal dinner</em> · overnight in St. Petersburg</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Optional in evening:</strong> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p., transport included)</em></span></li>
         </ul>
         <div class="day-tags reveal-el">
           <span class="day-tag">Peterhof</span>
           <span class="day-tag">Grand Cascade</span>
           <span class="day-tag">Catherine Palace</span>
           <span class="day-tag">Amber Room</span>
-          <span class="day-tag">Swan Lake</span>
         </div>
       </div>
 
@@ -1865,12 +2255,12 @@ section{position:relative}
       <div class="day-content">
         <div class="day-number-bg">07</div>
         <div class="day-eyebrow reveal-el">Day Seven &middot; Saturday, 04 July 2026</div>
-        <h2 class="day-title reveal-el">A Gentle Goodbye to the <span style="color:var(--crimson)">Neva</span></h2>
+        <h2 class="day-title reveal-el">A Gentle Goodbye Leisure Day to the <span style="color:var(--crimson)">Neva</span></h2>
         <div class="day-theme reveal-el">&ldquo;Coffee, Canals, and a Long Last Look&rdquo;</div>
         <ul class="day-schedule">
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text">Breakfast in the hotel · <strong>leisure morning</strong></span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Free time for shopping</strong> &amp; strolling &mdash; Nevsky Prospekt, Eliseev, souvenir markets</span></li>
-          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Halal dinner</em> with soft drinks · overnight in St. Petersburg</span></li>
+          <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><strong>Farewell dinner</strong> · overnight in St. Petersburg</span></li>
           <li class="day-schedule-item reveal-el"><span class="day-schedule-text"><em>Optional:</em> <strong>Swan Lake</strong> ballet at Mikhailovsky Theatre <em>(from $150 p.p.)</em></span></li>
         </ul>
         <div class="day-tags reveal-el">
@@ -1914,7 +2304,6 @@ section{position:relative}
         <div class="day-tags reveal-el">
           <span class="day-tag">Pulkovo Airport</span>
           <span class="day-tag">Onward to IST</span>
-          <span class="day-tag">Farewell</span>
         </div>
       </div>
 
@@ -2025,45 +2414,52 @@ section{position:relative}
 
     <ul class="inclusions-grid">
       <li class="inclusion-card reveal-el">
-        <div class="inclusion-icon">★</div>
+        <div class="inclusion-icon">&#128196;</div>
         <div class="inclusion-text">
-          <div class="inclusion-title">4&star; Hotels</div>
-          <div class="inclusion-desc">7 nights in hand-picked imperial-grade hotels in the heart of each city &mdash; breakfast included.</div>
+          <div class="inclusion-title">Visa &amp; Documentation</div>
+          <div class="inclusion-desc">Invitation from Russian authorities, Apostille attestation of Character Certificate from MoFA, full visa application &amp; processing, and travel insurance.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
-        <div class="inclusion-icon">&#127869;&#65039;</div>
+        <div class="inclusion-icon">★</div>
         <div class="inclusion-text">
-          <div class="inclusion-title">7 Halal Dinners</div>
-          <div class="inclusion-desc">Across 5 cuisines &mdash; Indian, Russian, Mediterranean, Arabian and Persian &mdash; with soft drinks.</div>
+          <div class="inclusion-title">4-Star City-Centre Hotels</div>
+          <div class="inclusion-desc">7 nights with breakfast &mdash; 3 nights in Moscow, 4 nights in St. Petersburg.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
         <div class="inclusion-icon">&#128646;</div>
         <div class="inclusion-text">
           <div class="inclusion-title">Sapsan Bullet Train</div>
-          <div class="inclusion-desc">Comfort-class seating Moscow &rarr; St. Petersburg, 250 km/h, 4 hours.</div>
+          <div class="inclusion-desc">Moscow &rarr; St. Petersburg Economy Plus class seating on the Sapsan high-speed train.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
-        <div class="inclusion-icon">&#127894;</div>
+        <div class="inclusion-icon">&#127979;</div>
         <div class="inclusion-text">
-          <div class="inclusion-title">All Tours &amp; Admissions</div>
-          <div class="inclusion-desc">Every entry ticket, museum admission and excursion listed in the itinerary &mdash; no surprises at the gate.</div>
+          <div class="inclusion-title">All Entry Tickets &amp; Admissions</div>
+          <div class="inclusion-desc">Nikulin Circus, Cable Car, Kremlin territory, St. Basil's Cathedral, Peterhof Park, Catherine Palace &amp; the Amber Room, Boat Cruise on the Neva river canals.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
         <div class="inclusion-icon">&#128099;</div>
         <div class="inclusion-text">
-          <div class="inclusion-title">English-Speaking Guide</div>
-          <div class="inclusion-desc">A dedicated guide with you throughout, in both Moscow and St. Petersburg.</div>
+          <div class="inclusion-title">Fully Guided Tour</div>
+          <div class="inclusion-desc">English-speaking guide with you throughout, in both cities, exactly as per the itinerary.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
         <div class="inclusion-icon">&#128665;</div>
         <div class="inclusion-text">
-          <div class="inclusion-title">Private A/C Transfers</div>
-          <div class="inclusion-desc">Airport pickups, drop-offs and every group transfer in private air-conditioned coaches.</div>
+          <div class="inclusion-title">Private A/C Transport</div>
+          <div class="inclusion-desc">All transfers and city transportation on a private air-conditioned bus.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#127869;&#65039;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">7 Exquisite Halal Dinners</div>
+          <div class="inclusion-desc">Five different cuisines &mdash; Indian, Traditional Russian, Imperial Russian Signature, Mediterranean, Arabian / Middle Eastern, Persian.</div>
         </div>
       </li>
       <li class="inclusion-card reveal-el">
@@ -2077,10 +2473,156 @@ section{position:relative}
         <div class="inclusion-icon">&#127911;</div>
         <div class="inclusion-text">
           <div class="inclusion-title">Group Headphones</div>
-          <div class="inclusion-desc">Wireless audio sets for every guided tour &mdash; hear every word, even at the back.</div>
+          <div class="inclusion-desc">Wireless audio sets for every guided tour where required &mdash; hear every word, even at the back.</div>
+        </div>
+      </li>
+      <li class="inclusion-card reveal-el">
+        <div class="inclusion-icon">&#128176;</div>
+        <div class="inclusion-text">
+          <div class="inclusion-title">Tips Included</div>
+          <div class="inclusion-desc">Tips for the driver and guide are taken care of &mdash; nothing to think about on the day.</div>
         </div>
       </li>
     </ul>
+
+    <div class="not-included reveal-el">
+      <div class="eyebrow">What's Not Included</div>
+      <ul>
+        <li>International airfare</li>
+        <li>Personal expenses (minibar, laundry, souvenirs, etc.)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VISA REQUIREMENTS
+     ============================================================ -->
+<section class="visa" id="visa">
+  <div class="wrap">
+    <div class="visa-head">
+      <div class="eyebrow reveal-el">Russian Visa</div>
+      <h2 class="reveal-el">Visa Requirements</h2>
+      <p class="reveal-el">Here's everything you need to prepare. We arrange the rest &mdash; including the official invitation letter and MoFA attestation.</p>
+    </div>
+
+    <div class="visa-grid">
+      <div class="visa-block reveal-el slide-left">
+        <h3>What You Provide</h3>
+        <ol>
+          <li>Machine-readable passport, valid for a <strong>minimum of 6 months</strong>, with two blank pages.</li>
+          <li>Copies of any previous passports <em>(if a passport was lost, a police report will be required).</em></li>
+          <li>Latest colour photograph on a white background &mdash; <strong>3.5 × 4.5 cm</strong>.</li>
+          <li>Police Character Certificate, duly attested by MoFA <em>(we arrange the attestation).</em></li>
+          <li>Family Registration Certificate.</li>
+          <li>Employment certificate stating the applicant's position and duration of employment, plus proof of income &mdash; <strong>last 3 months' salary slips</strong>.<br><em>If self-employed:</em> business letterhead (original) with business stamp.</li>
+          <li>Account maintenance certificate and bank statement of the <strong>last 6 months</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="visa-block reveal-el slide-right">
+        <h3>What We Arrange (Included)</h3>
+        <ul>
+          <li>Flight reservations and paid hotel-accommodation confirmation <em>(arranged after receipt of your payment).</em></li>
+          <li><strong>Original invitation letter</strong> from the concerned ministry of Russia.</li>
+          <li>MoFA attestation of your Police Character Certificate.</li>
+          <li>Full visa application &amp; processing.</li>
+          <li><strong>Health Insurance.</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing-head">
+      <div class="eyebrow reveal-el">Total Price</div>
+      <h2 class="reveal-el">Investment</h2>
+      <p class="reveal-el">All-inclusive handling charges in Russia &amp; visa &mdash; based on a minimum of <strong>20 passengers</strong>.</p>
+    </div>
+
+    <div class="price-cards">
+      <div class="price-card featured reveal-el slide-left">
+        <div class="price-card-label">Twin Sharing</div>
+        <div class="price-card-amount"><span class="currency">$</span>1,845</div>
+        <div class="price-card-note">per person, all-inclusive</div>
+        <div class="price-card-min">Minimum 20 pax</div>
+      </div>
+      <div class="price-card reveal-el slide-right">
+        <div class="price-card-label">Single Supplement</div>
+        <div class="price-card-amount"><span class="currency">$</span>275</div>
+        <div class="price-card-note">add-on, per person</div>
+        <div class="price-card-min">For private room</div>
+      </div>
+    </div>
+
+    <div class="payment-schedule reveal-el">
+      <h3>Final Deadline &amp; Payment Schedule</h3>
+      <ul>
+        <li class="deadline">
+          <span><strong>Last Date of Confirmation &amp; Payment</strong></span>
+          <span><strong>30 March 2026</strong></span>
+        </li>
+        <li>
+          <span>Advance Payment by 30 April <em>(50%)</em></span>
+          <span><strong>270,000 PKR</strong></span>
+        </li>
+        <li>
+          <span>Single Supplement Advance Payment <em>(50%)</em></span>
+          <span><strong>310,000 PKR</strong></span>
+        </li>
+        <li class="note">The remaining payment will be submitted soon after approval of the Russia visa.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BANK DETAILS + FLIGHT NOTE
+     ============================================================ -->
+<section class="bank-flight" id="payment">
+  <div class="wrap">
+    <div class="bank-flight-grid">
+      <div class="bf-card reveal-el slide-left">
+        <h3>Bank Details for Payment</h3>
+        <div class="field">
+          <span class="field-label">Bank</span>
+          <span class="field-value">Askari Commercial Bank Ltd.</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Title</span>
+          <span class="field-value">Sardar Sajjad</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Account #</span>
+          <span class="field-value">0260590001448</span>
+        </div>
+        <div class="field">
+          <span class="field-label">IBAN</span>
+          <span class="field-value">PK77 ASCM 0000 2605 9000 1448</span>
+        </div>
+        <div class="deposit-callout">
+          Kindly deposit <strong>50% (advance payment)</strong> in the account above by <strong>30th April 2026</strong> and share the receipt. Remaining amount is due soon after visa approval.
+        </div>
+      </div>
+
+      <div class="bf-card reveal-el slide-right">
+        <h3>Flight Schedule &amp; Cost</h3>
+        <div class="flight-note">
+          <strong>From Islamabad.</strong> Flight numbers and timings will be shared on WhatsApp as per the latest schedule.
+        </div>
+        <div class="flight-note">
+          You're welcome to book your tickets through your own travel agent &mdash; our flight services are available too if you prefer.
+        </div>
+        <div class="flight-warning">
+          <strong>Note:</strong> Airfare prices are subject to change depending on time of booking &mdash; <strong>the earlier, the better</strong>.
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2090,9 +2632,9 @@ section{position:relative}
 <section class="cta">
   <div class="cta-inner">
     <div class="eyebrow reveal-el" style="color:var(--gold-bright)">Shall we?</div>
-    <h2 class="reveal-el">Ready to Write the <em>Next Chapter?</em></h2>
+    <h2 class="reveal-el">Are You Ready to Write the <em>Next Chapter?</em></h2>
     <p class="reveal-el">
-      After the Great Wall, after the Bund, after the Terracotta Warriors &mdash; the story continues. Moscow &amp; St. Petersburg are waiting, and the White Nights only last so long.
+      After the Great Wall, the Bund and the Terracotta Warriors &mdash; the story continues. Moscow &amp; St. Petersburg are awaiting, and the White Nights only last so long.
     </p>
 
     <div class="cta-card reveal-el">
@@ -2106,13 +2648,15 @@ section{position:relative}
     <div class="final-seal">
       <div class="final-seal-item">Exclusive Travel Buddies</div>
       <div class="cta-divider"></div>
+      <div class="final-seal-item">The Group that Symbolises a Family</div>
+      <div class="cta-divider"></div>
       <div class="final-seal-item">Bukhari Group &middot; Since 1973</div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <em>White Nights &amp; Golden Domes</em> &middot; Russia 2026 &middot; Crafted for the family that travels together
+  <em>Golden Domes &amp; White Nights</em> &middot; Russia 2026 &middot; Crafted for the family that travels together
 </footer>
 
 <script>
