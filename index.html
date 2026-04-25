@@ -1034,6 +1034,18 @@ section{position:relative}
   white-space:nowrap;border-radius:2px;
   border:1px solid rgba(244,201,93,0.5);
 }
+/* Side-anchored labels — keep the dotted flight lines clear */
+.city-marker-label.left{
+  top:50%;
+  left:auto;
+  right:16px;
+  transform:translateY(-50%);
+}
+.city-marker-label.right{
+  top:50%;
+  left:16px;
+  transform:translateY(-50%);
+}
 .leg-marker{background:transparent;border:none}
 .leg-marker-icon{
   width:32px;height:32px;border-radius:50%;
@@ -3333,19 +3345,20 @@ window.addEventListener('load', () => {
   }, 40);
 
   // --- City pins ----------------------------------------------------------
-  const makeCityIcon = (name) => L.divIcon({
-    html: `<div style="position:relative"><div class="city-marker-label">${name}</div><div class="city-marker-pin"></div></div>`,
+  // `side` keeps the label off the dashed flight lines: 'left' or 'right'
+  const makeCityIcon = (name, side = 'right') => L.divIcon({
+    html: `<div style="position:relative"><div class="city-marker-label ${side}">${name}</div><div class="city-marker-pin"></div></div>`,
     className:'city-marker',
     iconSize:[18,18],
     iconAnchor:[9,9]
   });
-  L.marker(khi,    {icon:makeCityIcon('KARACHI')}).addTo(map)
+  L.marker(khi,    {icon:makeCityIcon('KARACHI',       'right')}).addTo(map)
     .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Karachi (KHI)</strong><br><em>EK 603 dep 22:55 · 27 Jun &middot; Return: EK 600 arr 10:45 · 06 Jul</em>');
-  L.marker(dxb,    {icon:makeCityIcon('DUBAI')}).addTo(map)
+  L.marker(dxb,    {icon:makeCityIcon('DUBAI',         'left')}).addTo(map)
     .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Dubai (DXB)</strong><br><em>Outbound &amp; return connection — Emirates hub</em>');
-  L.marker(moscow, {icon:makeCityIcon('MOSCOW')}).addTo(map)
+  L.marker(moscow, {icon:makeCityIcon('MOSCOW',        'right')}).addTo(map)
     .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">Moscow (DME)</strong><br><em>EK 129 arr 06:40 · 28 Jun &middot; Days 1–4 · Kremlin, Red Square, VDNKH</em>');
-  L.marker(spb,    {icon:makeCityIcon('ST. PETERSBURG')}).addTo(map)
+  L.marker(spb,    {icon:makeCityIcon('ST. PETERSBURG','left')}).addTo(map)
     .bindPopup('<strong style="font-family:Playfair Display, serif;color:#8B0000">St. Petersburg (LED)</strong><br><em>Days 4–8 · Hermitage, Peterhof, Amber Room &middot; EK 176 dep 23:05 · 05 Jul</em>');
 
   // --- Mid-point travel icons (plane + train) -----------------------------
